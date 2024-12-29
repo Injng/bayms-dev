@@ -20,5 +20,16 @@
     </div>
   </div>
 
-  <div>Stuff</div>
+  <!-- About -->
+  <div class="relative flex flex-col font-serif bg-black bg-opacity-60">
+    <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-white">
+      <div class="text-5xl font-bold pb-5">ABOUT US</div>
+      <div class="pb-2 text-xl">
+        BAYMS, 501(c)(3) Public Charity EIN# 74-3247617, is a non-profit volunteer organization that brings together youth from the Bay Area. We are dedicated to nurturing and enhancing children’s musical talents by involving them in various community service activities. By participating in services, our younger members improve their musical abilities and learn the significance of giving back to our community.
+      </div>
+      <div class="text-xl">
+        At BAYMS, we offer opportunities for children to perform, collaborate, and grow as musicians. We host events such as concerts, workshops, and masterclasses that connect them with diverse audiences and causes. Our mission is to educate young musicians and encourage community engagement to allow them to develop their skills while making meaningful contributions to society.
+      </div>
+    </div>
+  </div>
 </div>
