@@ -12,7 +12,7 @@
   </div>
   
   <!-- Header -->
-  <div class="fixed top-10 left-10 right-10 bg-slate-100 flex flex-row font-serif p-5">
+  <div class="fixed top-10 left-10 right-10 bg-slate-100 flex flex-row font-serif p-5 z-10">
     <div>BAYMS</div>
     <div class="grow flex flex-row-reverse space-x-reverse space-x-4">
       <div>Musicians</div>
