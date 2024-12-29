@@ -32,4 +32,15 @@
       </div>
     </div>
   </div>
+
+  
+  <!-- Join -->
+  <div class="relative flex flex-col font-serif bg-white">
+    <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-black">
+      <div class="text-5xl font-bold pb-5">JOIN US</div>
+      <div class="pb-2 text-xl">
+        We are always on the lookout for talented musicians to join us. If you're interested in auditioning, please review the information below.
+      </div>
+    </div>
+  </div>
 </div>
