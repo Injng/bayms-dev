@@ -9,7 +9,9 @@
       <div class="text-white text-5xl font-bold">
         Bay Area Youth Music Society
       </div>
-      <a href="/#about" class="text-white">Learn more</a>
+      <a href="/#about" class="text-white mt-10 pl-5 pr-5 p-2 outline-1 outline-white outline">
+        Learn more
+      </a>
     </div>
   </div>
   
