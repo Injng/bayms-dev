@@ -1,3 +1,9 @@
+<!-- 
+     Footer.svelte
+     Author: Lin Jiang (@Injng)
+     Svelte component for the website footer.
+-->
+
 <div class="relative bg-black text-white font-serif">
   <div class="grid gap-x-40 grid-cols-[300px_minmax(300px,_400px)_100px] pt-10 ml-40 mr-40">
     <div class="relative flex flex-col">
