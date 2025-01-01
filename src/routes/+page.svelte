@@ -17,10 +17,11 @@
   
   <!-- Header -->
   <div class="fixed top-10 left-10 right-10 bg-slate-100 flex flex-row font-serif p-5 z-10">
-    <div>BAYMS</div>
+    <a href="/" class="font-bold">BAYMS</a>
     <div class="grow flex flex-row-reverse space-x-reverse space-x-4">
-      <div>Musicians</div>
-      <div>Performances</div>
+      <a href="/login" class="font-bold">Login</a>
+      <a href="/musicians">Musicians</a>
+      <a href="/performances">Performances</a>
     </div>
   </div>
 
@@ -63,8 +64,8 @@
   </div>
 
   <!-- Footer -->
-  <div class="relative bg-black text-white">
-    <div class="relative grid gap-x-40 grid-cols-[300px_minmax(300px,_400px)_100px] pt-10 ml-40 mr-40 space-x-10 font-serif">
+  <div class="relative bg-black text-white font-serif">
+    <div class="grid gap-x-40 grid-cols-[300px_minmax(300px,_400px)_100px] pt-10 ml-40 mr-40">
       <div class="relative flex flex-col">
         <div class="font-bold">BAY AREA YOUTH MUSIC SOCIETY</div>
         <div>386 S Clover Ave.</div>
