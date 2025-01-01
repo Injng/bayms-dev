@@ -29,10 +29,22 @@
     <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-white">
       <div class="text-5xl font-bold pb-5">ABOUT US</div>
       <div class="pb-2 text-xl">
-        BAYMS, 501(c)(3) Public Charity EIN# 74-3247617, is a non-profit volunteer organization that brings together youth from the Bay Area. We are dedicated to nurturing and enhancing children’s musical talents by involving them in various community service activities. By participating in services, our younger members improve their musical abilities and learn the significance of giving back to our community.
+        BAYMS, 501(c)(3) Public Charity EIN# 74-3247617, is a
+        non-profit volunteer organization that brings together youth
+        from the Bay Area. We are dedicated to nurturing and enhancing
+        children’s musical talents by involving them in various
+        community service activities. By participating in services,
+        our younger members improve their musical abilities and learn
+        the significance of giving back to our community.
       </div>
       <div class="text-xl">
-        At BAYMS, we offer opportunities for children to perform, collaborate, and grow as musicians. We host events such as concerts, workshops, and masterclasses that connect them with diverse audiences and causes. Our mission is to educate young musicians and encourage community engagement to allow them to develop their skills while making meaningful contributions to society.
+        At BAYMS, we offer opportunities for children to perform,
+        collaborate, and grow as musicians. We host events such as
+        concerts, workshops, and masterclasses that connect them with
+        diverse audiences and causes. Our mission is to educate young
+        musicians and encourage community engagement to allow them to
+        develop their skills while making meaningful contributions to
+        society.
       </div>
     </div>
   </div>
@@ -43,8 +55,52 @@
     <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-black">
       <div class="text-5xl font-bold pb-5">JOIN US</div>
       <div class="pb-2 text-xl">
-        We are always on the lookout for talented musicians to join us. If you're interested in auditioning, please review the information below.
+        We are always on the lookout for talented musicians to join
+        us. If you're interested in auditioning, please review the
+        information below.
       </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="relative bg-black text-white">
+    <div class="relative grid gap-x-40 grid-cols-[300px_minmax(300px,_400px)_100px] pt-10 ml-40 mr-40 space-x-10 font-serif">
+      <div class="relative flex flex-col">
+        <div class="font-bold">BAY AREA YOUTH MUSIC SOCIETY</div>
+        <div>386 S Clover Ave.</div>
+        <div>San Jose, CA 95128</div>
+      </div>
+      <div class="relative flex flex-col">
+        <div class="font-bold">DONATE</div>
+        <div>
+          We are a non-profit organization dedicated to developing and
+          sponsoring children’s musical talents through active
+          involvement in community services.﻿ Donations are always
+          accepted at BAYMS and tax-deductible as the law may
+          allow. Check with your tax-advisor.﻿ Please send donations,
+          payable to BAYMS, to:﻿
+        </div>
+        <div class="mt-4">3417 Monte Sereno Terrace</div>
+        <div>Fremont, CA 94539</div>
+      </div>
+      <div class="relative flex flex-col justify-items-center">
+        <div class="font-bold">SPONSORS</div>
+        <div>LinkedIn</div>
+        <div>Apple</div>
+        <div>Qualcomm</div>
+        <div>Cisco</div>
+        <div>Ebay</div>
+        <div>Oracle</div>
+        <div>Intel</div>
+        <div>Applied Materials﻿</div>
+        <div>Meta</div>
+        <div>Juniper Networks</div>
+        <div>ByteDance</div>
+        <div>Google</div>
+      </div>
+    </div>
+    <div class="font-serif text-xs text-white text-center pt-10 pb-5">
+      © BAYMS 2025
     </div>
   </div>
 </div>
