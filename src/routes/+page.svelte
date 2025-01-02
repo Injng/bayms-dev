@@ -7,7 +7,19 @@
 <script lang="ts">
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
+
+  // the gap of the header from the document side
+  let headerGap = 40;
+
+  /**
+   * Calculates the gap of the header based on scroll distance
+   */
+  function calcHeader() {
+    headerGap = Math.round(scrollY < 1000 ? 40 - scrollY / 1000 * 40 : 0);
+  }
 </script>
+
+<svelte:window on:scroll={calcHeader} />
 
 <div class="relative">
   <!-- Hero -->
@@ -27,7 +39,7 @@
   </div>
   
   <!-- Header -->
-  <Header />
+  <Header {headerGap} />
 
   <!-- About -->
   <div id="about" class="relative flex flex-col font-serif bg-black bg-opacity-60">
