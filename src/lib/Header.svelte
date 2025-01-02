@@ -4,7 +4,7 @@
      Svelte component for the website header.
 -->
 <script lang="ts">
-  export let headerGap: number;
+  let { headerGap = 0 } = $props();
 </script>
 
 <div class="fixed bg-slate-100 flex flex-row font-serif p-5 z-10"
