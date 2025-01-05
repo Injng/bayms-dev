@@ -2,7 +2,7 @@
      +page.svelte
      Author: Lin Jiang (@Injng)
      The website's homepage, containing About Us and Join Us content as well as hero.
--->
+  -->
 
 <script lang="ts">
   import Footer from "$lib/Footer.svelte";

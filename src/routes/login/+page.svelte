@@ -1,6 +1,28 @@
+<!--
+    login/+page.svelte
+    Author: Lin Jiang (@Injng)
+    The website's login page for logging in members with an email and username.
+  -->
+
 <script lang="ts">
+  import type { ActionData, PageData } from "./$types";
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
+
+  // handle login errors through the action data
+  let { data: _, form }: { data: PageData, form: ActionData } = $props();
+  
+  // don't show the login error on first load
+  let showError = $state(false);
+  
+  // if error occurs thereafter, set showError to true
+  $effect(() => {
+    if (form) {
+      if (form.success != undefined && !form.success) showError = true;
+    } else {
+      showError = false;
+    }
+  });
 </script>
 
 <!-- Header -->
@@ -10,7 +32,7 @@
 <div class="relative bg-slate-500 p-52 pl-[40rem] pr-[40rem]">
   <div class="relative outline outline-3 outline-black bg-white p-10 font-serif">
     <div class="text-center text-3xl font-bold pb-5">Member Login</div>
-    <form method="POST">
+    <form method="POST" action="?/login">
       <div class="flex flex-col justify-end">
         <label class="pb-3">
           <div>Email</div>
@@ -27,6 +49,11 @@
         </button>
       </div>
     </form>
+    {#if showError}
+      <div class="mt-7 p-2 bg-red-200 text-sm text-red-600">
+        Error: Please check your credentials and try again.
+      </div>
+    {/if}
   </div>
 </div>
 
