@@ -10,7 +10,7 @@
   import Header from "$lib/Header.svelte";
 
   // handle login errors through the action data
-  let { data: _, form }: { data: PageData, form: ActionData } = $props();
+  let { data, form }: { data: PageData, form: ActionData } = $props();
   
   // don't show the login error on first load
   let showError = $state(false);
@@ -26,7 +26,7 @@
 </script>
 
 <!-- Header -->
-<Header />
+<Header auth={data.auth} />
 
 <!-- Login Form -->
 <div class="relative bg-slate-500 p-52 pl-[40rem] pr-[40rem]">
