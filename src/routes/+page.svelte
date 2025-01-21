@@ -5,12 +5,8 @@
   -->
 
 <script lang="ts">
-  import type { PageData } from "./$types";
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
-
-  // access page data loaded in from the server
-  let { data }: { data: PageData } = $props();
 
   // the gap of the header from the document side
   let headerGap = $state(40);
@@ -43,7 +39,7 @@
   </div>
   
   <!-- Header -->
-  <Header auth={data.auth} {headerGap} />
+  <Header {headerGap} />
 
   <!-- About -->
   <div id="about" class="relative flex flex-col font-serif bg-black bg-opacity-60">

@@ -5,12 +5,12 @@
   -->
 
 <script lang="ts">
-  import type { ActionData, PageData } from "./$types";
+  import type { ActionData } from "./$types";
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
 
   // handle login errors through the action data
-  let { data, form }: { data: PageData, form: ActionData } = $props();
+  let { form }: { form: ActionData } = $props();
   
   // don't show the login error on first load
   let showError = $state(false);
@@ -26,7 +26,7 @@
 </script>
 
 <!-- Header -->
-<Header auth={data.auth} />
+<Header />
 
 <!-- Login Form -->
 <div class="relative bg-slate-500 p-52 pl-[40rem] pr-[40rem]">
