@@ -21,13 +21,13 @@
 <!-- Header -->
 <Header />
 
-<div class="bg-black/90 text-white/80 font-serif min-h-[calc(100vh-64px)] flex flex-col">
-  <div class="p-5 border-b text-white border-white/70 font-bold">
+<div class="bg-dashboard text-muted font-serif min-h-[calc(100vh-64px)] flex flex-col">
+  <div class="p-5 border-b text-white border-muted-b font-bold">
     Dashboard
   </div>
-  <div class="grow grid grid-cols-[200px_minmax(900px,_1fr)] border-white/60">
-    <div class="border-r border-white/60 grid grid-rows-[repeat(2,_60px)]">
-      <div class="p-5 border-b border-white/60 {section == 0 ? 'text-white font-bold' : ''}">
+  <div class="grow grid grid-cols-[200px_minmax(900px,_1fr)] border-muted-b">
+    <div class="border-r border-muted-b grid grid-rows-[repeat(2,_60px)]">
+      <div class="p-5 border-b border-muted-b {section == 0 ? 'text-white font-bold' : ''}">
         Profile
       </div>
     </div>

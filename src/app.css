@@ -22,6 +22,14 @@
   }
 }
 
+@theme {
+  --color-dashboard: #171717;
+  --color-muted-b: #30363d;
+  --color-muted: #848d97;
+  --color-form: #1f1f1f;
+  --color-input: #222222;
+}
+
 html {
   scroll-behavior: smooth;
 }
