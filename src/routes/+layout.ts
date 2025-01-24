@@ -1,14 +1,18 @@
+/**
+   +layout.ts
+   Author: Lin Jiang (@Injng)
+   Provides global access to the supabase client and session states.
+*/
+
 import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ssr'
 import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
 import type { LayoutLoad } from './$types'
 
 export const load: LayoutLoad = async ({ data, depends, fetch }) => {
-  /**
-   * Declare a dependency so the layout can be invalidated, for example, on
-   * session refresh.
-   */
+  // declare a dependency so the layout can be invalidated
   depends('supabase:auth')
 
+  // obtain the supabase client using the url and key
   const supabase = isBrowser()
     ? createBrowserClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
         global: {
@@ -24,20 +28,14 @@ export const load: LayoutLoad = async ({ data, depends, fetch }) => {
             return data.cookies
           },
         },
-      })
+    });
 
-  /**
-   * It's fine to use `getSession` here, because on the client, `getSession` is
-   * safe, and on the server, it reads `session` from the `LayoutData`, which
-   * safely checked the session using `safeGetSession`.
-   */
-  const {
-    data: { session },
-  } = await supabase.auth.getSession()
+  // obtain the session from supabase
+  const { data: { session } } = await supabase.auth.getSession();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  // obtain the user from supabase
+  const { data: { user } } = await supabase.auth.getUser();
+  const auth = user != null;
 
-  return { session, supabase, user }
+  return { session, supabase, user, auth };
 }
