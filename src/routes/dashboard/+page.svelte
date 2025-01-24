@@ -5,14 +5,11 @@
   -->
 
 <script lang="ts">
-    import Header from "$lib/Header.svelte";
 </script>
 
-<!-- Header -->
-<Header />
-
-<div class="relative bg-black p-52">
-  <div class="bg-black">
-    test
+<div class="pl-52 pr-52 pt-5">
+  <div class="text-2xl text-white">
+    User Profile
   </div>
 </div>
+

@@ -10,8 +10,6 @@
   let { headerGap = 0 } = $props();
   let data = $derived(page.data);
 
-  console.log(data);
-
   // make header relative if there is no scrolling animation, i.e. not on the home page
   let style = headerGap == 0 ? "relative" : "fixed";
 
