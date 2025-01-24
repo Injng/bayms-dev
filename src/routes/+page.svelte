@@ -27,7 +27,7 @@
     <video class="relative object-cover w-full h-full" autoplay muted loop>
       <source src="hero.mp4" type="video/mp4">
     </video>
-    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="absolute inset-0 bg-black/60"></div>
     <div class="absolute inset-0 flex flex-col items-center justify-center font-serif">
       <div class="text-white text-5xl font-bold">
         Bay Area Youth Music Society
@@ -42,7 +42,7 @@
   <Header {headerGap} />
 
   <!-- About -->
-  <div id="about" class="relative flex flex-col font-serif bg-black bg-opacity-60">
+  <div id="about" class="relative flex flex-col font-serif bg-black/60">
     <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-white">
       <div class="text-5xl font-bold pb-5">ABOUT US</div>
       <div class="pb-2 text-xl">
