@@ -31,7 +31,7 @@
         Profile
       </div>
     </div>
-    <div class="p-5">
+    <div class="p-5 h-[calc(100vh-129px)] overflow-auto">
       <slot></slot>
     </div>
   </div>
