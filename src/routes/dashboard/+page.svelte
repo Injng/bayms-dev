@@ -32,7 +32,14 @@
           <label class="grid grid-cols-[150px_1fr] mb-2 ml-5 items-center">
             <div>Birthday</div>
             <input name="birthday" type="date" class="border border-muted-b bg-input">
-        </label>
+          </label>
+        </div>
+        <div class="w-full flex justify-end">
+          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1 mt-2
+                         bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+                  type="submit">
+            Save
+          </button>
         </div>
       </form>
     </div>
@@ -43,8 +50,8 @@
     <div class="border-b border-muted-b pt-3 pb-3 pl-5 pr-5 text-white text-lg">
       Address and School Information
     </div>
-    <div class="pt-3 pb-3 pl-5 pr-5 border-b border-muted-b">
-      <form method="POST" action="?/save-personal-information">
+    <form method="POST" action="?/save-location-information">
+      <div class="pt-3 pb-3 pl-5 pr-5 border-b border-muted-b">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Street</div>
           <input name="name" type="text" class="border border-muted-b bg-input">
@@ -63,10 +70,8 @@
             <input name="postal" type="text" class="border border-muted-b bg-input">
           </label>
         </div>
-      </form>
-    </div>
-    <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-personal-information">
+      </div>
+      <div class="pt-3 pb-3 pl-5 pr-5">
         <div class="grid grid-cols-2">
           <label class="grid grid-cols-[150px_1fr] mb-2 items-center mr-5">
             <div>School Name</div>
@@ -77,8 +82,15 @@
             <input name="grade" type="number" class="border border-muted-b bg-input">
           </label>
         </div>
-      </form>
-    </div>
+        <div class="w-full flex justify-end">
+          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1 mt-2
+                         bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+                  type="submit">
+            Save
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 
   <!-- About Form -->
@@ -87,7 +99,7 @@
       About
     </div>
     <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-personal-information">
+      <form method="POST" action="?/save-about-information">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Picture</div>
           <input name="picture" type="file" class="border border-muted-b bg-input p-2"
@@ -104,6 +116,13 @@
                     placeholder="Enter your biography here (max 650 chars)"
                     maxlength="650"></textarea>
         </label>
+        <div class="w-full flex justify-end">
+          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1 mt-2
+                         bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+                  type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -114,7 +133,7 @@
       Parent 1 Information
     </div>
     <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-personal-information">
+      <form method="POST" action="?/save-parent1-information">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Parent 1 Name</div>
           <input name="parent1-name" type="text" class="border border-muted-b bg-input">
@@ -127,6 +146,13 @@
           <div>Parent 1 Phone</div>
           <input name="parent1-phone" type="tel" class="border border-muted-b bg-input">
         </label>
+        <div class="w-full flex justify-end">
+          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1 mt-2
+                         bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+                  type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -137,7 +163,7 @@
       Parent 2 Information
     </div>
     <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-personal-information">
+      <form method="POST" action="?/save-parent2-information">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Parent 2 Name</div>
           <input name="parent2-name" type="text" class="border border-muted-b bg-input">
@@ -150,6 +176,13 @@
           <div>Parent 2 Phone</div>
           <input name="parent2-phone" type="tel" class="border border-muted-b bg-input">
         </label>
+        <div class="w-full flex justify-end">
+          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1 mt-2
+                         bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+                  type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   </div>
