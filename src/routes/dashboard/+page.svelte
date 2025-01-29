@@ -60,7 +60,7 @@
     <div class="border-b border-muted-b pt-3 pb-3 pl-5 pr-5 text-white text-lg">
       Address and School Information
     </div>
-    <form method="POST" action="?/save-location-information">
+    <form method="POST" action="?/save_location_information">
       <div class="pt-3 pb-3 pl-5 pr-5 border-b border-muted-b">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Street</div>
@@ -115,7 +115,7 @@
       About
     </div>
     <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-about-information">
+      <form method="POST" action="?/save_about_information">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Picture</div>
           <input name="picture" type="file" class="border border-muted-b bg-input p-2"
@@ -150,7 +150,7 @@
       Parent 1 Information
     </div>
     <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-parent1-information">
+      <form method="POST" action="?/save_parent1_information">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Parent 1 Name</div>
           <input name="parent1-name" type="text" class="border border-muted-b bg-input"
@@ -183,7 +183,7 @@
       Parent 2 Information
     </div>
     <div class="pt-3 pb-3 pl-5 pr-5">
-      <form method="POST" action="?/save-parent2-information">
+      <form method="POST" action="?/save_parent2_information">
         <label class="grid grid-cols-[150px_1fr] mb-2 items-center">
           <div>Parent 2 Name</div>
           <input name="parent2-name" type="text" class="border border-muted-b bg-input"
@@ -200,8 +200,8 @@
                  value={user['parent2/phone']}>
         </label>
         <div class="w-full flex justify-end">
-          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1 mt-2
-                         bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+          <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
+                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
                   type="submit">
             Save
           </button>

@@ -91,5 +91,100 @@ export const actions = {
     const { error } = await supabase.from('members').update(update).eq('uid', user.id);
     if (error) return { success: false };
     else return { success: true };
+  },
+
+  /** Action for saving location and school information. */
+  save_location_information: async ({ locals: { supabase }, request }) => {
+    const formData = await request.formData();
+    
+    const update = {
+      'address/street': formData.get('street') as string,
+      'address/city': formData.get('city') as string,
+      'address/state': formData.get('state') as string,
+      'address/zip': formData.get('zip') as string,
+      'school': formData.get('school') as string,
+      'grade': parseInt(formData.get('grade') as string)
+    };
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user === null) return { success: false };
+
+    const { error } = await supabase.from('members').update(update).eq('uid', user.id);
+    if (error) return { success: false };
+    else return { success: true };
+  },
+
+  /** Action for saving about information. */
+  save_about_information: async ({ locals: { supabase }, request }) => {
+    const formData = await request.formData();
+    
+    // Handle file upload for picture
+    const pictureFile = formData.get('picture') as File;
+    let pictureUrl = '';
+    
+    if (pictureFile.size > 0) {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user === null) return { success: false };
+      
+      // Upload to storage bucket with user ID in path
+      const { data, error: uploadError } = await supabase.storage
+        .from('profile-pictures')
+        .upload(`${user.id}/${pictureFile.name}`, pictureFile, {
+          cacheControl: '3600',
+          upsert: true
+        });
+      
+      if (uploadError) return { success: false };
+      pictureUrl = data.path;
+    }
+
+    const update = {
+      'picture': pictureUrl || undefined, // Only update if new picture was uploaded
+      'instrument': formData.get('instrument') as string,
+      'bio': formData.get('bio') as string
+    };
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user === null) return { success: false };
+
+    const { error } = await supabase.from('members').update(update).eq('uid', user.id);
+    if (error) return { success: false };
+    else return { success: true };
+  },
+
+  /** Action for saving parent 1 information. */
+  save_parent1_information: async ({ locals: { supabase }, request }) => {
+    const formData = await request.formData();
+    
+    const update = {
+      'parent1/name': formData.get('parent1-name') as string,
+      'parent1/email': formData.get('parent1-email') as string,
+      'parent1/phone': formatPhoneNumber(formData.get('parent1-phone') as string)
+    };
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user === null) return { success: false };
+
+    const { error } = await supabase.from('members').update(update).eq('uid', user.id);
+    if (error) return { success: false };
+    else return { success: true };
+  },
+
+  /** Action for saving parent 2 information. */
+  save_parent2_information: async ({ locals: { supabase }, request }) => {
+    const formData = await request.formData();
+    
+    const update = {
+      'parent2/name': formData.get('parent2-name') as string,
+      'parent2/email': formData.get('parent2-email') as string,
+      'parent2/phone': formatPhoneNumber(formData.get('parent2-phone') as string)
+    };
+
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user === null) return { success: false };
+
+    const { error } = await supabase.from('members').update(update).eq('uid', user.id);
+    if (error) return { success: false };
+    else return { success: true };
   }
 } satisfies Actions;
