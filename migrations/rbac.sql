@@ -1,6 +1,6 @@
 -- CUSTOM TYPES
-CREATE TYPE public.app_permission AS ENUM ('members.select', 'members.update', 'members.insert');
-CREATE TYPE public.app_role AS ENUM ('admin', 'member');
+CREATE TYPE public.app_permission AS ENUM ('members.select', 'members.update', 'members.insert', 'user_roles.select', 'user_roles.update', 'user_roles.insert');
+CREATE TYPE public.app_role AS ENUM ('admin', 'member', 'applicant');
 
 -- USER ROLES
 CREATE TABLE public.user_roles (
