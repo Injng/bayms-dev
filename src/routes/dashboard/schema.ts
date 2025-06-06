@@ -64,8 +64,8 @@ export const locationSchoolSchema = z.object({
  * Includes optional fields for a picture (File instance), instrument, and biography.
  */
 export const aboutInformationSchema = z.object({
-  picture: z.instanceof(File).refine((f) => f.size < 5_000_000 , 'Max 5 MB size.'),
-  instruments: z.enum(instruments).optional(),
+  picture: z.instanceof(File).refine((f) => f.size < 5_000_000 , 'Max 5 MB.').optional(),
+  instruments: z.enum(instruments).array().optional(),
   bio: z.string().max(650).optional(),
 });
 
