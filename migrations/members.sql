@@ -17,7 +17,7 @@ CREATE TABLE members (
     parent2name TEXT,
     parent2phone TEXT,
     parent2email TEXT,
-    grade TEXT,
+    grade INT8,
     instruments TEXT[],
     graduated TEXT
 );
