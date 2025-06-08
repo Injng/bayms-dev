@@ -16,7 +16,10 @@
     constraints: personalInformationConstraints,
     message: personalInformationMessage,
     enhance: personalInformationEnhance,
-  } = superForm(data.personalInformationForm);
+    submitting: personalInformationSubmitting,
+  } = superForm(data.personalInformationForm, {
+    resetForm: false,
+  });
 
   // load location and school form from superforms
   const {
@@ -25,7 +28,10 @@
     constraints: locationSchoolConstraints,
     message: locationSchoolMessage,
     enhance: locationSchoolEnhance,
-  } = superForm(data.locationSchoolForm);
+    submitting: locationSchoolSubmitting,
+  } = superForm(data.locationSchoolForm, {
+    resetForm: false,
+  });
 
   // load about information form from superforms
   const {
@@ -34,7 +40,10 @@
     constraints: aboutInformationConstraints,
     message: aboutInformationMessage,
     enhance: aboutInformationEnhance,
-  } = superForm(data.aboutInformationForm);
+    submitting: aboutInformationSubmitting,
+  } = superForm(data.aboutInformationForm, {
+    resetForm: false,
+  });
   const picture = fileProxy(aboutInformationForm, 'picture');
 
   // load parent 1 information form from superforms
@@ -44,7 +53,10 @@
     constraints: parent1InformationConstraints,
     message: parent1InformationMessage,
     enhance: parent1InformationEnhance,
-  } = superForm(data.parent1InformationForm);
+    submitting: parent1InformationSubmitting,
+  } = superForm(data.parent1InformationForm, {
+    resetForm: false,
+  });
   
   // load parent 2 information form from superforms
   const {
@@ -53,7 +65,10 @@
     constraints: parent2InformationConstraints,
     message: parent2InformationMessage,
     enhance: parent2InformationEnhance,
-  } = superForm(data.parent2InformationForm);
+    submitting: parent2InformationSubmitting,
+  } = superForm(data.parent2InformationForm, {
+    resetForm: false,
+  });
 
   // states
   const states = [
@@ -106,7 +121,9 @@
         <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
           <div>Email</div>
           <div>
-            <input name="email" type="email" class="border border-muted-b bg-input w-full"
+            <input name="email" type="email"
+                   class="border-muted-b bg-input opacity-50 w-full cursor-not-allowed"
+                   disabled
                    {...$personalInformationConstraints.email}
                    bind:value={$personalInformationForm.email}>
             {#if $personalInformationErrors.email}
@@ -143,9 +160,15 @@
         </div>
         <div class="w-full flex justify-end">
           <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
-                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
-                  type="submit">
-            Save
+                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all
+                         disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={$personalInformationSubmitting}>
+            {#if $personalInformationSubmitting}
+              Saving...
+            {:else}
+              Save
+            {/if}
           </button>
         </div>
       </form>
@@ -244,9 +267,15 @@
         </div>
         <div class="w-full flex justify-end">
           <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
-                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
-                  type="submit">
-            Save
+                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all
+                         disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={$locationSchoolSubmitting}>
+            {#if $locationSchoolSubmitting}
+              Saving...
+            {:else}
+              Save
+            {/if}
           </button>
         </div>
       </div>
@@ -262,7 +291,7 @@
       {#if $aboutInformationMessage}
         <p class="mb-3 text-sm text-white">{$aboutInformationMessage}</p>
       {/if}
-      <form method="POST" action="?/save_about_information"
+      <form method="POST" action="?/save_about_information" enctype="multipart/form-data"
             use:aboutInformationEnhance>
         <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
           <div>Picture (max 5 MB)</div>
@@ -309,9 +338,15 @@
         </label>
         <div class="w-full flex justify-end">
           <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
-                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
-                  type="submit">
-            Save
+                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all
+                         disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={$aboutInformationSubmitting}>
+            {#if $aboutInformationSubmitting}
+              Saving...
+            {:else}
+              Save
+            {/if}
           </button>
         </div>
       </form>
@@ -373,9 +408,15 @@
         </label>
         <div class="w-full flex justify-end">
           <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
-                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
-                  type="submit">
-            Save
+                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all
+                         disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={$parent1InformationSubmitting}>
+            {#if $parent1InformationSubmitting}
+              Saving...
+            {:else}
+              Save
+            {/if}
           </button>
         </div>
       </form>
@@ -437,9 +478,15 @@
         </label>
         <div class="w-full flex justify-end">
           <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
-                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
-                  type="submit">
-            Save
+                         mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all
+                         disabled:opacity-50 disabled:cursor-not-allowed"
+                  type="submit"
+                  disabled={$parent2InformationSubmitting}>
+            {#if $parent2InformationSubmitting}
+              Saving...
+            {:else}
+              Save
+            {/if}
           </button>
         </div>
       </form>
