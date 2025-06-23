@@ -38,10 +38,10 @@ const instruments = [
  * Includes optional fields for name, email, phone number, and birthday.
  */
 export const personalInformationSchema = z.object({
-  name: z.string().optional(),
-  email: z.string().email().optional(),
-  phone: z.string().optional(),
-  birthday: z.string().date().optional(),
+  name: z.string().nullable().optional(),
+  email: z.string().email(),
+  phone: z.string().nullable().optional(),
+  birthday: z.string().date().nullable().optional(),
 });
 
 /**
@@ -50,12 +50,12 @@ export const personalInformationSchema = z.object({
  * Includes optional fields for street, city, state, ZIP code, school name, and grade.
  */
 export const locationSchoolSchema = z.object({
-  street: z.string().optional(),
-  city: z.string().optional(),
-  state: z.enum(states).optional(),
-  zip: z.string().regex(/^\d{5}(-\d{4})?$/).optional(),
-  school: z.string().optional(),
-  grade: z.number().optional(),
+  street: z.string().nullable().optional(),
+  city: z.string().nullable().optional(),
+  state: z.enum(states).nullable().optional(),
+  zip: z.string().regex(/^\d{5}(-\d{4})?$/).nullable().optional(),
+  school: z.string().nullable().optional(),
+  grade: z.number().nullable().optional(),
 });
 
 /**
@@ -65,8 +65,8 @@ export const locationSchoolSchema = z.object({
  */
 export const aboutInformationSchema = z.object({
   picture: z.instanceof(File).refine((f) => f.size < 5_000_000 , 'Max 5 MB.').optional(),
-  instruments: z.enum(instruments).array().optional(),
-  bio: z.string().max(650).optional(),
+  instruments: z.enum(instruments).array().nullable().optional(),
+  bio: z.string().max(650).nullable().optional(),
 });
 
 /**
@@ -75,9 +75,9 @@ export const aboutInformationSchema = z.object({
  * Includes optional fields for name, email, and phone number.
  */
 export const parent1InformationSchema = z.object({
-  parent1name: z.string().optional(),
-  parent1email: z.string().email().optional(),
-  parent1phone: z.string().optional(),
+  parent1name: z.string().nullable().optional(),
+  parent1email: z.string().email().nullable().optional(),
+  parent1phone: z.string().nullable().optional(),
 });
 
 /**
@@ -86,7 +86,7 @@ export const parent1InformationSchema = z.object({
  * Includes optional fields for name, email, and phone number.
  */
 export const parent2InformationSchema = z.object({
-  parent2name: z.string().optional(),
-  parent2email: z.string().email().optional(),
-  parent2phone: z.string().optional(),
+  parent2name: z.string().nullable().optional(),
+  parent2email: z.string().email().nullable().optional(),
+  parent2phone: z.string().nullable().optional(),
 });
