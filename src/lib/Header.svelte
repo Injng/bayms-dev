@@ -29,7 +29,7 @@
   <a href="/" class="font-bold">BAYMS</a>
   <div class="grow flex flex-row-reverse space-x-reverse space-x-4">
     {#if data.auth}
-      <button class="font-bold" onclick={logout}>
+      <button class="font-bold cursor-pointer" onclick={logout}>
         Logout
       </button>
     {:else}
