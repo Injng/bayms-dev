@@ -30,7 +30,7 @@
 
 <!-- Login Form -->
 <div class="relative bg-slate-500 p-52 pl-[40rem] pr-[40rem]">
-  <div class="relative outline outline-3 outline-black bg-white p-10 font-serif">
+  <div class="relative outline outline-3 outline-black bg-white p-10 pb-5 font-serif">
     <div class="text-center text-3xl font-bold pb-5">Member Login</div>
     <form method="POST" action="?/login">
       <div class="flex flex-col justify-end">
@@ -54,6 +54,10 @@
         Error: Please check your credentials and try again.
       </div>
     {/if}
+    <div class="mt-5 text-right">
+      <a href="/apply"
+         class="text-slate-500 hover:text-slate-700">Applicant? Apply here.</a>
+    </div>
   </div>
 </div>
 
