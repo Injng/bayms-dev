@@ -4,7 +4,7 @@
    Back-end actions to handle sign-up on the application page.
 */
 
-import type { Actions } from '../../../../../../.emacs.d/saves/!home!lnjng!Projects!dev!bayms!.svelte-kit!types!src!routes!apply!$types.d.ts~';
+import type { Actions } from './$types';
 
 export const actions = {
   /** Action for signing up an applicant. */

@@ -28,6 +28,10 @@
   --color-muted: #848d97;
   --color-form: #1f1f1f;
   --color-input: #222222;
+  --color-destructive: #7F2315;
+  --color-destructive-600: #F16A50;
+  --color-constructive: #006239;
+  --color-link: #00C573;
 }
 
 html {

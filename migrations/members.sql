@@ -51,3 +51,10 @@ ON "public"."members"
 FOR INSERT TO authenticated WITH CHECK (
   (SELECT authorize('members.insert'))
 );
+
+-- RLS POLICY 5
+CREATE POLICY "Enable users to view their own data only"
+ON "public"."members"
+TO authenticated USING (
+  (SELECT auth.jwt()) ->> 'email' = email
+);

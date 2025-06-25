@@ -6,6 +6,8 @@
 <script lang="ts">
   import { page } from '$app/state';
   import { invalidateAll } from '$app/navigation';
+  import { jwtDecode } from 'jwt-decode';
+  import type { JwtPayload as DefaultJwtPayload } from "jwt-decode";
   
   let { headerGap = 0 } = $props();
   let data = $derived(page.data);
@@ -22,6 +24,21 @@
       await invalidateAll();
     }
   }
+
+  // define jwt payload to include custom user role claim
+  interface JwtPayload extends DefaultJwtPayload {
+    user_role: string;
+  }
+
+  // obtain role of user (either member, applicant, or admin)
+  let userRole: string = $state('');
+  function getRole() {
+    if (data.session) {
+      const jwt = jwtDecode<JwtPayload>(data.session.access_token);
+      userRole = jwt.user_role;
+    }
+  };
+  getRole();
 </script>
 
 <div class="{style} bg-slate-100 flex flex-row font-serif p-5 z-10"
@@ -36,7 +53,11 @@
       <a href="/login" class="font-bold">Login</a>
     {/if}
     {#if data.auth}
-      <a href="/dashboard">Dashboard</a>
+      {#if userRole === 'applicant'}
+        <a href="/dashboard/applicant">Application</a>
+      {:else}
+        <a href="/dashboard">Dashboard</a>
+      {/if}
     {/if}
     <a href="/musicians">Musicians</a>
     <a href="/performances">Performances</a>

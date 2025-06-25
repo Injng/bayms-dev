@@ -40,12 +40,26 @@
       section = 0;
       break;
     }
+
+    case "/dashboard/applicant" : {
+      section = 0;
+      break;
+    }
       
     case "/dashboard/members" : {
       section = 1;
       break;
     }
+
+    case "/dashboard/applicants" : {
+      section = 2;
+      break;
     }
+
+    case "/dashboard/status" : {
+      section = 2;
+      break;
+    }}
   });
 </script>
 
@@ -58,12 +72,28 @@
   </div>
   <div class="grow grid grid-cols-[200px_minmax(900px,_1fr)] border-muted-b">
     <div class="border-r border-muted-b grid grid-rows-[repeat(2,_60px)]">
-      <div class="p-5 border-b border-muted-b {section==0 ? 'text-white font-bold' : ''}">
-        <a href="/dashboard">Profile</a>
-      </div>
+      {#if userRole === 'applicant'}
+        <div class="p-5 border-b border-muted-b {section==0 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard/applicant">Profile</a>
+        </div>
+      {:else}
+        <div class="p-5 border-b border-muted-b {section==0 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard">Profile</a>
+        </div>
+      {/if}
+      
       {#if userRole === 'admin'}
         <div class="p-5 border-b border-muted-b {section==1 ? 'text-white font-bold' : ''}">
           <a href="/dashboard/members">Members</a>
+        </div>
+        <div class="p-5 border-b border-muted-b {section==2 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard/applicants">Applicants</a>
+        </div>
+      {/if}
+
+      {#if userRole === 'applicant'}
+        <div class="p-5 border-b border-muted-b {section==2 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard/status">Status</a>
         </div>
       {/if}
     </div>

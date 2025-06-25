@@ -19,7 +19,7 @@ CREATE TABLE applicants (
     parent2email TEXT,
     grade INT8,
     instruments TEXT[],
-    graduated TEXT
+    graduated TEXT,
 );
 
 -- RLS POLICY 1
@@ -53,8 +53,22 @@ FOR INSERT TO authenticated WITH CHECK (
 );
 
 -- RLS POLICY 5
+CREATE POLICY "Allow authorized delete access"
+ON "public"."applicants"
+FOR DELETE TO authenticated USING (
+  (SELECT authorize('members.delete'))
+);
+
+-- RLS POLICY 6
 CREATE POLICY "Allow insert if user email matches applicant email"
 ON "public"."applicants"
 FOR INSERT TO authenticated WITH CHECK (
+  (SELECT auth.jwt()) ->> 'email' = email
+);
+
+-- RLS POLICY 7
+CREATE POLICY "Enable users to view their own data only"
+ON "public"."applicants"
+TO authenticated USING (
   (SELECT auth.jwt()) ->> 'email' = email
 );
