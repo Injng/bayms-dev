@@ -8,6 +8,9 @@
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
 
+  // get page data loaded from server
+  let { data } = $props();
+
   // the gap of the header from the document side
   let headerGap = $state(40);
 
@@ -16,6 +19,23 @@
    */
   function calcHeader() {
     headerGap = Math.round(scrollY < 1000 ? 40 - scrollY / 1000 * 40 : 0);
+  }
+
+  // format date for display
+  function formatDate(dateString: string): string {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  }
+
+  // format time for display
+  function formatTime(timeString: string | null): string {
+    if (!timeString) return '';
+    return timeString;
   }
 </script>
 
@@ -49,7 +69,7 @@
         BAYMS, 501(c)(3) Public Charity EIN# 74-3247617, is a
         non-profit volunteer organization that brings together youth
         from the Bay Area. We are dedicated to nurturing and enhancing
-        children’s musical talents by involving them in various
+        children's musical talents by involving them in various
         community service activities. By participating in services,
         our younger members improve their musical abilities and learn
         the significance of giving back to our community.
@@ -66,10 +86,44 @@
     </div>
   </div>
 
+  <!-- Upcoming Events -->
+  <div class="relative flex flex-col font-serif bg-white">
+    <div class="relative flex flex-col mt-20 mb-20 ml-80 mr-80 p-5 text-black">
+      <div class="text-5xl font-bold pb-5">UPCOMING EVENTS</div>
+      {#if data.upcomingEvents && data.upcomingEvents.length > 0}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {#each data.upcomingEvents as event}
+            <div class="border border-gray-200 rounded-lg p-6 bg-gray-50 hover:bg-gray-100 transition-colors">
+              <div class="mb-3">
+                <div class="font-semibold text-lg text-black mb-2">{event.name}</div>
+                <div class="text-emerald-600 text-sm font-medium">
+                  {formatDate(event.date)}
+                  {#if event.time}
+                    <div class="text-gray-600 mt-1">at {formatTime(event.time)}</div>
+                  {/if}
+                </div>
+              </div>
+              <div class="text-gray-700 mb-3">
+                <span class="text-emerald-600">📍</span> {event.locations.name}
+              </div>
+              {#if event.description}
+                <div class="text-gray-600 text-sm">{event.description}</div>
+              {/if}
+            </div>
+          {/each}
+        </div>
+      {:else}
+        <div class="text-xl text-gray-600">
+          No upcoming events at the moment. Check back soon for new events and performances!
+        </div>
+      {/if}
+    </div>
+  </div>
+
   
   <!-- Join -->
-  <div class="relative flex flex-col font-serif bg-white">
-    <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-black">
+  <div class="relative flex flex-col font-serif bg-black/60">
+    <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-white">
       <div class="text-5xl font-bold pb-5">JOIN US</div>
       <div class="pb-2 text-xl">
         We are always on the lookout for talented musicians to join

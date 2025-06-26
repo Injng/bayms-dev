@@ -43,10 +43,10 @@ CREATE TABLE events (
 );
 
 -- RLS POLICY 1
-CREATE POLICY "Allow authorized select access"
+CREATE POLICY "Enable read access for all users"
 ON "public"."events"
-FOR SELECT TO authenticated USING (
-  (SELECT authorize('events.select'))
+FOR SELECT TO public USING (
+  true
 );
 
 -- RLS POLICY 2
