@@ -5,7 +5,6 @@
 -->
 
 <script lang="ts">
-  import { goto } from "$app/navigation";
   import ApplicantInfo from "$lib/ApplicantInfo.svelte";
   import type { Member } from "$lib/types";
 
