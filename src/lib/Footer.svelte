@@ -5,7 +5,7 @@
 -->
 
 <div class="relative bg-black text-white font-serif">
-  <div class="grid gap-x-40 grid-cols-[300px_minmax(300px,400px)_100px] pt-10 ml-40 mr-40">
+  <div class="grid gap-x-40 grid-cols-[300px_minmax(300px,400px)_300px] pt-10 ml-40 mr-40">
     <div class="relative flex flex-col">
       <div class="font-bold">BAY AREA YOUTH MUSIC SOCIETY</div>
       <div>386 S Clover Ave.</div>
@@ -33,7 +33,7 @@
       <div>Ebay</div>
       <div>Oracle</div>
       <div>Intel</div>
-      <div>Applied Materials﻿</div>
+      <div>Applied Materials</div>
       <div>Meta</div>
       <div>Juniper Networks</div>
       <div>ByteDance</div>
