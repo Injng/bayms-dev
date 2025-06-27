@@ -1,5 +1,5 @@
 -- CUSTOM TYPES
-CREATE TYPE public.app_permission AS ENUM ('members.select', 'members.update', 'members.insert', 'members.delete', 'user_roles.select', 'user_roles.update', 'user_roles.insert', 'events.select', 'events.update', 'events.insert', 'events.delete');
+CREATE TYPE public.app_permission AS ENUM ('members.select', 'members.update', 'members.insert', 'members.delete', 'user_roles.select', 'user_roles.update', 'user_roles.insert', 'events.select', 'events.update', 'events.insert', 'events.delete', 'recordings.select', 'recordings.update', 'recordings.insert', 'recordings.delete');
 CREATE TYPE public.app_role AS ENUM ('admin', 'member', 'applicant');
 
 -- USER ROLES
@@ -50,7 +50,11 @@ VALUES  ('admin', 'members.select'),
         ('admin', 'events.select'),
         ('admin', 'events.insert'),
         ('admin', 'events.update'),
-        ('admin', 'events.delete');
+        ('admin', 'events.delete'),
+        ('admin', 'recordings.select'),
+        ('admin', 'recordings.insert'),
+        ('admin', 'recordings.update'),
+        ('admin', 'recordings.delete');
 
 -- ROLE PERMISSIONS RLS POLICIES
 CREATE POLICY "Allow all authenticated users select access"

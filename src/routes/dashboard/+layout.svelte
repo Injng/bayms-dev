@@ -64,7 +64,13 @@
     case "/dashboard/events" : {
       section = 3;
       break;
-    }}
+    }
+
+    case "/dashboard/recordings" : {
+        section = 4;
+        break;
+      }
+    }
   });
 </script>
 
@@ -96,6 +102,9 @@
         </div>
         <div class="p-5 border-b border-muted-b {section==3 ? 'text-white font-bold' : ''}">
           <a href="/dashboard/events">Events</a>
+        </div>
+        <div class="p-5 border-b border-muted-b {section==4 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard/recordings">Recordings</a>
         </div>
       {/if}
 
