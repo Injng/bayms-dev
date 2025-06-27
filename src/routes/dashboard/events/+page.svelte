@@ -316,9 +316,6 @@
               </div>
               <div class="text-gray-300 mb-2">
                 <span class="text-emerald-400">📍</span> {event.locations.name}
-                {#if event.locations.description}
-                  <span class="text-gray-400 ml-2">({event.locations.description})</span>
-                {/if}
               </div>
               {#if event.description}
                 <div class="text-gray-300 text-sm">{event.description}</div>
