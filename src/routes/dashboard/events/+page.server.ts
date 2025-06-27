@@ -88,5 +88,5 @@ export const actions = {
 
     // success message
     return message(form, 'Event added successfully.');
-  }
+  },
 } satisfies Actions;

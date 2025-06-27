@@ -6,6 +6,7 @@
 
 <script lang="ts">
   import { superForm } from "sveltekit-superforms";
+  import { Trash } from 'lucide-svelte';
 
   // get page data loaded from server
   let { data } = $props();
@@ -58,13 +59,51 @@
     const selectedLocation = data.locationData.find(loc => loc.id === locationId);
     if (!selectedLocation) return;
 
-    // only auto-fill if the fields are empty
+    // Only auto-fill if the fields are empty
     if (!$eventForm.name) {
       $eventForm.name = selectedLocation.name;
     }
     if (!$eventForm.description && selectedLocation.description) {
       $eventForm.description = selectedLocation.description;
     }
+  }
+
+  // handle event deletion
+  async function deleteEvent(eventId: number, eventName: string) {
+    if (!confirm(`Are you sure you want to delete "${eventName}"? This action cannot be undone.`)) {
+      return;
+    }
+
+    // use supabase to delete the event
+    const { error } = await data.supabase
+      .from('events')
+      .delete()
+      .eq('id', eventId);
+    if (error) {
+      alert('Error deleting event. Please try again.');
+    }
+
+    // refresh the page to show updated data
+    window.location.reload();
+  }
+
+  // handle location deletion
+  async function deleteLocation(locationId: number, locationName: string) {
+    if (!confirm(`Are you sure you want to delete "${locationName}"? This action cannot be undone.`)) {
+      return;
+    }
+
+    // use supabase to delete the location
+    const { error } = await data.supabase
+      .from('locations')
+      .delete()
+      .eq('id', locationId);
+    if (error) {
+      alert('Error deleting location. Please try again.');
+    }
+
+    // refresh the page to show updated data
+    window.location.reload();
   }
 </script>
 
@@ -228,11 +267,17 @@
       {:else}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {#each data.locationData as location}
-            <div class="border border-muted-b p-3 bg-input">
+            <div class="border border-muted-b p-3 bg-input relative">
               <div class="font-semibold text-white mb-1">{location.name}</div>
               {#if location.description}
                 <div class="text-gray-300 text-sm">{location.description}</div>
               {/if}
+              <button 
+                class="absolute top-2 right-2 text-destructive hover:text-destructive-600 p-1 rounded transition-colors"
+                onclick={() => deleteLocation(location.id, location.name)}
+                title="Delete location">
+                <Trash size={16} />
+              </button>
             </div>
           {/each}
         </div>
@@ -254,15 +299,26 @@
             <div class="border border-muted-b p-4 bg-input">
               <div class="flex justify-between items-start mb-2">
                 <div class="font-semibold text-white text-lg">{event.name}</div>
-                <div class="text-emerald-400 text-sm">
-                  {formatDate(event.date)}
-                  {#if event.time}
-                    <span class="text-gray-400 ml-2">at {formatTime(event.time)}</span>
-                  {/if}
+                <div class="flex items-center gap-3">
+                  <div class="text-emerald-400 text-sm">
+                    {formatDate(event.date)}
+                    {#if event.time}
+                      <span class="text-gray-400 ml-2">at {formatTime(event.time)}</span>
+                    {/if}
+                  </div>
+                  <button 
+                    class="text-destructive hover:text-destructive-600 p-1 rounded transition-colors"
+                    onclick={() => deleteEvent(event.id, event.name)}
+                    title="Delete event">
+                    <Trash size={16} />
+                  </button>
                 </div>
               </div>
               <div class="text-gray-300 mb-2">
                 <span class="text-emerald-400">📍</span> {event.locations.name}
+                {#if event.locations.description}
+                  <span class="text-gray-400 ml-2">({event.locations.description})</span>
+                {/if}
               </div>
               {#if event.description}
                 <div class="text-gray-300 text-sm">{event.description}</div>
