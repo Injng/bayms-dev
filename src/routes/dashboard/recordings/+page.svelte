@@ -6,6 +6,8 @@
 
 <script lang="ts">
   import { superForm } from "sveltekit-superforms";
+  import { highlights, addHighlight, removeHighlight, type Highlight } from "$lib/stores/highlights";
+    import { Trash } from "lucide-svelte";
 
   // get page data loaded from server
   let { data } = $props();
@@ -25,6 +27,14 @@
   // state for selected event
   let selectedEvent: any = $state(null);
   let showAddForm = $state(false);
+
+  // state for highlights
+  let showAddHighlightForm = $state(false);
+  let highlightForm = $state({
+    title: '',
+    description: '',
+    youtubeUrl: ''
+  });
 
   // format date for display
   function formatDate(dateString: string): string {
@@ -64,11 +74,122 @@
   function getRecordingsForEvent(eventId: number) {
     return data.recordingData.filter((recording: any) => recording.event_id === eventId);
   }
+
+  // handle adding highlight
+  function handleAddHighlight() {
+    if (highlightForm.title && highlightForm.youtubeUrl) {
+      addHighlight({
+        title: highlightForm.title,
+        description: highlightForm.description || undefined,
+        youtubeUrl: highlightForm.youtubeUrl
+      });
+      
+      // Reset form
+      highlightForm = {
+        title: '',
+        description: '',
+        youtubeUrl: ''
+      };
+      showAddHighlightForm = false;
+    }
+  }
+
+  // format YouTube URL for embedding
+  function formatYoutubeLink(url: string) {
+    const videoId = url.split('v=')[1];
+    return `https://www.youtube-nocookie.com/embed/${videoId}`;
+  }
 </script>
 
 <div class="px-10 sm:px-52 pt-5">
   <div class="text-2xl text-white mb-5">
     Recordings
+  </div>
+
+  <!-- Highlights Section -->
+  <div class="bg-form border border-muted-b mb-5">
+    <div class="border-b border-muted-b pt-3 pb-3 pl-5 pr-5 text-white text-lg flex justify-between items-center">
+      <span>Highlights</span>
+      <button 
+        class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
+               bg-emerald-800 hover:bg-emerald-700 text-white transition-all text-sm"
+        onclick={() => showAddHighlightForm = !showAddHighlightForm}>
+        {showAddHighlightForm ? 'Cancel' : 'Add Highlight'}
+      </button>
+    </div>
+    
+    <!-- Add Highlight Form -->
+    {#if showAddHighlightForm}
+      <div class="pt-3 pb-3 pl-5 pr-5 border-b border-muted-b">
+        <div class="grid grid-cols-2 gap-5 mb-2">
+          <label class="grid grid-cols-[120px_1fr] items-start">
+            <div>Title</div>
+            <div>
+              <input 
+                type="text" 
+                class="border border-muted-b bg-input w-full text-white"
+                placeholder="Highlight title"
+                bind:value={highlightForm.title}>
+            </div>
+          </label>
+          <label class="grid grid-cols-[120px_1fr] items-start">
+            <div>YouTube URL</div>
+            <div>
+              <input 
+                type="url" 
+                class="border border-muted-b bg-input w-full text-white"
+                placeholder="https://www.youtube.com/watch?v=..."
+                bind:value={highlightForm.youtubeUrl}>
+            </div>
+          </label>
+        </div>
+        <label class="grid grid-cols-[120px_1fr] mb-2 items-start">
+          <div>Description</div>
+          <div>
+            <textarea 
+              class="border border-muted-b bg-input w-full text-white"
+              placeholder="Optional description"
+              bind:value={highlightForm.description}></textarea>
+          </div>
+        </label>
+        <div class="w-full flex justify-end">
+          <button 
+            class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
+                   mt-2 bg-emerald-800 hover:bg-emerald-700 text-white transition-all"
+            onclick={handleAddHighlight}>
+            Add Highlight
+          </button>
+        </div>
+      </div>
+    {/if}
+
+    <!-- Highlights Display -->
+    <div class="pt-3 pb-3 pl-5 pr-5">
+      {#if $highlights.length === 0}
+        <p class="text-gray-400">No highlights added yet. Add some highlights above.</p>
+      {:else}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {#each $highlights as highlight}
+            <div class="border border-muted-b p-3 bg-input">
+              <div class="flex justify-between items-start mb-2">
+                <div class="font-semibold text-white text-sm">{highlight.title}</div>
+                <button 
+                  class="text-red-400 hover:text-red-300 text-sm"
+                  onclick={() => removeHighlight(highlight.id)}>
+                  <Trash size={16} />
+                </button>
+              </div>
+              {#if highlight.description}
+                <div class="text-gray-300 text-xs mb-2">{highlight.description}</div>
+              {/if}
+              <div class="text-emerald-400 text-xs">
+                Added: {highlight.addedAt.toLocaleDateString()}
+              </div>
+            </div>
+          {/each}
+        </div>
+      {/if}
+    </div>
   </div>
 
   <!-- Add Recording Form (shown when event is selected) -->
@@ -176,7 +297,7 @@
                 </div>
                 <button class="border border-emerald-900 hover:border-emerald-800 p-2 pt-1 pb-1
                                bg-emerald-800 hover:bg-emerald-700 text-white transition-all text-sm"
-                        onclick={() => selectEventForRecording(event)}>
+                         onclick={() => selectEventForRecording(event)}>
                   Add Recording
                 </button>
               </div>
