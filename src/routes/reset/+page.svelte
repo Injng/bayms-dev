@@ -52,7 +52,7 @@
     <form method="POST" action="?/reset">
       <div class="flex flex-col justify-end">
         <label class="pb-3">
-          <div>Password</div>
+          <div>New Password</div>
           <input name="password" type="password" class="w-full" bind:value={password}
                  style={passwordLengthValid ? "border-color: green" : "border-color: red"}>
         </label>
@@ -64,7 +64,7 @@
           {/if}
         </div>
         <label class="pb-2">
-          <div>Confirm Password</div>
+          <div>Confirm New Password</div>
           <input name="password2" type="password" class="w-full" bind:value={password2}
                  style={passwordSame ? "border-color: green" : "border-color: red"}>
         </label>
