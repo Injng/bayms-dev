@@ -12,7 +12,7 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
   // get member data from the database
   const { data: memberData, error } = await supabase
     .from('members')
-    .select('name,email,phone,birthday,street,city,state,zip,school,grade,picture,instruments,bio,parent1name,parent1email,parent1phone,parent2name,parent2email,parent2phone');
+    .select('name,email,phone,birthday,street,city,state,zip,school,grade,picture,instruments,bio,parent1name,parent1email,parent1phone,parent2name,parent2email,parent2phone,graduated');
   if (error) {
     svError(500, error.message);
   }

@@ -20,7 +20,9 @@
     {#if member.phone}
       <p>{member.phone}</p>
     {/if}
-    {#if member.grade}
+    {#if member.graduated}
+      <p>Graduated {member.graduated}</p>
+    {:else if member.grade}
       <p>Grade {member.grade}</p>
     {/if}
     {#if member.instruments}

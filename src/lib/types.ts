@@ -18,4 +18,5 @@ export interface Member {
   parent2name: string;
   parent2email: string;
   parent2phone: string;
+  graduated: string | null;
 }
