@@ -17,6 +17,10 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
     svError(500, error.message);
   }
 
-// sort alphabetically ai!
+  // sort names in alphabetical order
+  if (memberData) {
+    memberData.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
   return { memberData };
 }
