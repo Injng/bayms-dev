@@ -17,5 +17,6 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
     svError(500, error.message);
   }
 
+// sort alphabetically ai!
   return { memberData };
 }
