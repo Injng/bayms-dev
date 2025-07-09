@@ -22,6 +22,12 @@ CREATE TABLE members (
     graduated TEXT
 );
 
+-- Revoke all privileges from public and anon roles
+REVOKE ALL ON "public"."members" FROM public, anon;
+
+-- Grant public read access to specific columns
+GRANT SELECT (name, picture, bio, instruments, grade, graduated) ON "public"."members" TO public, anon;
+
 -- RLS POLICY 1
 CREATE POLICY "Enable update for users based on email"
 ON "public"."members"
@@ -58,3 +64,10 @@ ON "public"."members"
 TO authenticated USING (
   (SELECT auth.jwt()) ->> 'email' = email
 );
+
+-- RLS POLICY 6
+CREATE POLICY "Allow public read access to granted rows"
+ON "public"."members"
+FOR SELECT
+TO public
+USING (true);
