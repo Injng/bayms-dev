@@ -7,7 +7,6 @@
 <script lang="ts">
   import Footer from "$lib/Footer.svelte";
   import Header from "$lib/Header.svelte";
-  import { highlights } from "$lib/stores/highlights";
 
   // get page data loaded from server
   let { data } = $props();
@@ -79,19 +78,19 @@
   </div>
 
   <!-- Highlights Section -->
-  {#if $highlights.length > 0}
+  {#if data.highlightData.length > 0}
     <div class="bg-gray-50 py-12">
       <div class="max-w-7xl mx-auto px-8">
         <div class="text-3xl font-bold mb-8 text-gray-800 text-center">Featured Highlights</div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {#each $highlights as highlight}
+          {#each data.highlightData as highlight}
             <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
               <!-- Video Embed -->
               <div class="relative w-full" style="padding-bottom: 56.25%;">
                 <iframe 
                   class="absolute top-0 left-0 w-full h-full"
-                  src={formatYoutubeLink(highlight.youtubeUrl)}
-                  title={highlight.title}
+                  src={formatYoutubeLink(highlight.recording_url)}
+                  title={highlight.name}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                   referrerpolicy="strict-origin-when-cross-origin" 
                   allowfullscreen>
@@ -99,13 +98,10 @@
               </div>
               <!-- Video Info -->
               <div class="p-4">
-                <h3 class="font-semibold text-lg text-gray-800 mb-2">{highlight.title}</h3>
+                <h3 class="font-semibold text-lg text-gray-800 mb-2">{highlight.name}</h3>
                 {#if highlight.description}
                   <p class="text-gray-600 text-sm mb-2">{highlight.description}</p>
                 {/if}
-                <div class="text-xs text-gray-500">
-                  Added: {highlight.addedAt.toLocaleDateString()}
-                </div>
               </div>
             </div>
           {/each}

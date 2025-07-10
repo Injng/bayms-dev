@@ -16,4 +16,15 @@ export const recordingSchema = z.object({
   description: z.string().optional(),
   recording_url: z.string().url('Please enter a valid URL').min(1, 'Recording URL is required'),
   event_id: z.number().min(1, 'Please select an event'),
+});
+
+/**
+ * @schema highlightSchema
+ * @description Zod schema for validating highlight form data.
+ * Includes required name and recording_url, and optional description.
+ */
+export const highlightSchema = z.object({
+  name: z.string().min(1, 'Highlight name is required'),
+  description: z.string().optional(),
+  recording_url: z.string().url('Please enter a valid URL').min(1, 'Recording URL is required'),
 }); 

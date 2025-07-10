@@ -1,6 +1,6 @@
 -- CUSTOM TYPES
-CREATE TYPE public.app_permission AS ENUM ('members.select', 'members.update', 'members.insert', 'members.delete', 'user_roles.select', 'user_roles.update', 'user_roles.insert', 'events.select', 'events.update', 'events.insert', 'events.delete', 'recordings.select', 'recordings.update', 'recordings.insert', 'recordings.delete');
-CREATE TYPE public.app_role AS ENUM ('admin', 'member', 'applicant');
+CREATE TYPE public.app_permission AS ENUM ('members.select', 'members.update', 'members.insert', 'members.delete', 'user_roles.select', 'user_roles.update', 'user_roles.insert', 'events.select', 'events.update', 'events.insert', 'events.delete', 'recordings.select', 'recordings.update', 'recordings.insert', 'recordings.delete', 'highlights.select', 'highlights.update', 'highlights.insert', 'highlights.delete');
+CREATE TYPE public.app_role AS ENUM ('admin', 'member', 'applicant', 'webmaster');
 
 -- USER ROLES
 CREATE TABLE public.user_roles (
@@ -54,7 +54,23 @@ VALUES  ('admin', 'members.select'),
         ('admin', 'recordings.select'),
         ('admin', 'recordings.insert'),
         ('admin', 'recordings.update'),
-        ('admin', 'recordings.delete');
+        ('admin', 'recordings.delete'),
+        ('admin', 'highlights.select'),
+        ('admin', 'highlights.insert'),
+        ('admin', 'highlights.update'),
+        ('admin', 'highlights.delete'),
+        ('webmaster', 'events.select'),
+        ('webmaster', 'events.insert'),
+        ('webmaster', 'events.update'),
+        ('webmaster', 'events.delete'),
+        ('webmaster', 'recordings.select'),
+        ('webmaster', 'recordings.insert'),
+        ('webmaster', 'recordings.update'),
+        ('webmaster', 'recordings.delete'),
+        ('webmaster', 'highlights.select'),
+        ('webmaster', 'highlights.insert'),
+        ('webmaster', 'highlights.update'),
+        ('webmaster', 'highlights.delete');
 
 -- ROLE PERMISSIONS RLS POLICIES
 CREATE POLICY "Allow all authenticated users select access"

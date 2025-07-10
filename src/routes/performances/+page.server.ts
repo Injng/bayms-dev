@@ -7,7 +7,7 @@
 import type { PageServerLoad } from './$types';
 import { error as svError } from '@sveltejs/kit';
 
-/** Load event and recording data for the performances page. */
+/** Load event, recording, and highlight data for the performances page. */
 export const load: PageServerLoad = async ({ locals: { supabase } }) => {
   // get event data from the database with location information
   const { data: eventData, error: eventError } = await supabase
@@ -45,8 +45,18 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
     svError(500, recordingError.message);
   }
 
+  // get highlights data from the database
+  const { data: highlightData, error: highlightError } = await supabase
+    .from('highlights')
+    .select('*')
+    .order('id', { ascending: false });
+  if (highlightError) {
+    svError(500, highlightError.message);
+  }
+
   return { 
     eventData, 
-    recordingData
+    recordingData,
+    highlightData
   };
 } 
