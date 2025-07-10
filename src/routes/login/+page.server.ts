@@ -5,6 +5,7 @@
 */
 
 import type { Actions } from './$types';
+import { redirect } from '@sveltejs/kit';
 
 export const actions = {
   /** Action for logging in a user. */
@@ -21,7 +22,7 @@ export const actions = {
     if (error) {
       return { success: false };
     } else {
-      return { success: true };
+      redirect(302, '/dashboard');
     }
   }
 } satisfies Actions;
