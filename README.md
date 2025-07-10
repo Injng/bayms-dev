@@ -1,22 +1,12 @@
-# sv
+# BAYMS
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
+This is the source code for the BAYMS website, built with SvelteKit and deployed using Vercel.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Beforehand, you will need to set up a Supabase project. All of the migration code is under the directory `migrations/`. After configuring all of the necessary values, it is highly recommended to turn on RLS for security. Copy `.env.example` and put the project URL and key into `.env.local`.
+
+Once you've set the repository up and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
@@ -25,14 +15,5 @@ npm run dev
 npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Usage
+Refer to the GitHub Wiki for usage details.
