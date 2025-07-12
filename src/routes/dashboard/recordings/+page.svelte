@@ -88,6 +88,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Recordings - Dashboard - BAYMS</title>
+</svelte:head>
+
 <div class="px-10 sm:px-52 pt-5">
   <div class="text-2xl text-white mb-5">
     Recordings

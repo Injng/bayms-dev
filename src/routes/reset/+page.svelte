@@ -42,6 +42,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Reset Password - BAYMS</title>
+</svelte:head>
+
 <!-- Header -->
 <Header />
 

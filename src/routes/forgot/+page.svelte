@@ -25,6 +25,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Forgot Password - BAYMS</title>
+</svelte:head>
+
 <!-- Header -->
 <Header />
 

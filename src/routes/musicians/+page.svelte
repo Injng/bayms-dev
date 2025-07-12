@@ -57,6 +57,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Musicians - BAYMS</title>
+</svelte:head>
+
 <!-- Header -->
 <Header />
 

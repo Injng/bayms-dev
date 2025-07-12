@@ -42,6 +42,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Apply - BAYMS</title>
+</svelte:head>
+
 <!-- Header -->
 <Header />
 

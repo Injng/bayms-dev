@@ -39,6 +39,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>BAYMS - Home</title>
+</svelte:head>
+
 <svelte:window on:scroll={calcHeader} />
 
 <div class="relative">

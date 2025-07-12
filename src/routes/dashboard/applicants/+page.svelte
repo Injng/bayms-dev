@@ -99,6 +99,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Applicants - Dashboard - BAYMS</title>
+</svelte:head>
+
 <svelte:window on:keydown={handleKeydown} />
 
 <div class="px-10 sm:px-52 pt-5">

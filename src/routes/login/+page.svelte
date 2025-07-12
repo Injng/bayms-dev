@@ -25,6 +25,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Login - BAYMS</title>
+</svelte:head>
+
 <!-- Header -->
 <Header />
 

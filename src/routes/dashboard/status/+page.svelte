@@ -12,6 +12,10 @@
   const isRejected = data?.isRejected?.rejected;
 </script>
 
+<svelte:head>
+  <title>Application Status - Dashboard - BAYMS</title>
+</svelte:head>
+
 <div class="pl-52 pr-52 pt-5 font-serif">
   <div class="text-2xl text-white mb-6">
     Application Status

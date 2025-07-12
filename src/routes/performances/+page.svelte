@@ -65,6 +65,10 @@
   });
 </script>
 
+<svelte:head>
+  <title>Performances - BAYMS</title>
+</svelte:head>
+
 <!-- Header -->
 <Header />
 

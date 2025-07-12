@@ -92,6 +92,10 @@
   ];
 </script>
 
+<svelte:head>
+  <title>Dashboard - BAYMS</title>
+</svelte:head>
+
 <div class="pl-52 pr-52 pt-5">
   <div class="text-2xl text-white">
     User Profile
