@@ -5,7 +5,7 @@
 -->
 
 <div class="relative bg-black text-white font-serif">
-  <div class="grid gap-x-40 grid-cols-[300px_minmax(300px,400px)_300px] pt-10 ml-40 mr-40">
+  <div class="grid gap-8 md:gap-x-40 grid-cols-1 md:grid-cols-[300px_minmax(300px,400px)_300px] pt-10 px-6 md:ml-40 md:mr-40">
     <div class="relative flex flex-col">
       <div class="font-bold">BAY AREA YOUTH MUSIC SOCIETY</div>
       <div>386 S Clover Ave.</div>
@@ -15,7 +15,7 @@
       <div class="font-bold">DONATE</div>
       <div>
         We are a non-profit organization dedicated to developing and
-        sponsoring children’s musical talents through active
+        sponsoring children's musical talents through active
         involvement in community services.﻿ Donations are always
         accepted at BAYMS and tax-deductible as the law may
         allow. Check with your tax-advisor.﻿ Please send donations,

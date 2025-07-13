@@ -92,7 +92,7 @@
   <title>Recordings - Dashboard - BAYMS</title>
 </svelte:head>
 
-<div class="px-10 sm:px-52 pt-5">
+<div class="px-4 md:px-10 lg:px-52 pt-5">
   <div class="text-2xl text-white mb-5">
     Recordings
   </div>
@@ -116,8 +116,8 @@
           <p class="mb-3 text-sm text-white">{$highlightMessage}</p>
         {/if}
         <form method="POST" action="?/add_highlight" use:highlightEnhance>
-          <div class="grid grid-cols-2 gap-5 mb-2">
-            <label class="grid grid-cols-[120px_1fr] items-start">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-2">
+            <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] items-start gap-2">
               <div>Title</div>
               <div>
                 <input 
@@ -132,7 +132,7 @@
                 {/if}
               </div>
             </label>
-            <label class="grid grid-cols-[120px_1fr] items-start">
+            <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] items-start gap-2">
               <div>Recording URL</div>
               <div>
                 <input 
@@ -148,7 +148,7 @@
               </div>
             </label>
           </div>
-          <label class="grid grid-cols-[120px_1fr] mb-2 items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] mb-2 items-start gap-2">
             <div>Description</div>
             <div>
               <textarea 

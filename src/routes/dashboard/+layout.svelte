@@ -33,6 +33,9 @@
   let section = $state(0);
   let path = $derived(page.url.pathname);
 
+  // mobile navigation state
+  let mobileNavOpen = $state(false);
+
   // determine which page the user is on and bold the navigation accordingly
   $effect(() => {
     switch (path) {
@@ -72,17 +75,72 @@
       }
     }
   });
+
+  function toggleMobileNav() {
+    mobileNavOpen = !mobileNavOpen;
+  }
 </script>
 
 <!-- Header -->
 <Header />
 
 <div class="bg-dashboard text-muted font-serif min-h-[calc(100vh-64px)] flex flex-col">
-  <div class="p-5 border-b text-white border-muted-b font-bold">
-    Dashboard
+  <div class="p-5 border-b text-white border-muted-b font-bold flex justify-between items-center">
+    <span>Dashboard</span>
+    <button 
+      class="md:hidden p-2" 
+      onclick={toggleMobileNav}
+      aria-label="Toggle navigation"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        {#if mobileNavOpen}
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        {:else}
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        {/if}
+      </svg>
+    </button>
   </div>
-  <div class="grow grid grid-cols-[200px_minmax(900px,_1fr)] border-muted-b">
-    <div class="border-r border-muted-b grid grid-rows-[repeat(4,_60px)]">
+  
+  <!-- Mobile Navigation -->
+  <div class="md:hidden {mobileNavOpen ? 'block' : 'hidden'} border-b border-muted-b">
+    <div class="flex flex-col">
+      {#if userRole === 'applicant'}
+        <div class="p-4 border-b border-muted-b {section==0 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/applicant">Profile</a>
+        </div>
+      {:else}
+        <div class="p-4 border-b border-muted-b {section==0 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard">Profile</a>
+        </div>
+      {/if}
+      
+      {#if userRole === 'admin'}
+        <div class="p-4 border-b border-muted-b {section==1 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/members">Members</a>
+        </div>
+        <div class="p-4 border-b border-muted-b {section==2 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/applicants">Applicants</a>
+        </div>
+        <div class="p-4 border-b border-muted-b {section==3 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/events">Events</a>
+        </div>
+        <div class="p-4 border-b border-muted-b {section==4 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/recordings">Recordings</a>
+        </div>
+      {/if}
+
+      {#if userRole === 'applicant'}
+        <div class="p-4 border-b border-muted-b {section==2 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/status">Status</a>
+        </div>
+      {/if}
+    </div>
+  </div>
+
+  <div class="grow grid grid-cols-1 md:grid-cols-[200px_minmax(900px,_1fr)] border-muted-b">
+    <!-- Desktop Navigation -->
+    <div class="hidden md:block border-r border-muted-b grid grid-rows-[repeat(4,_60px)]">
       {#if userRole === 'applicant'}
         <div class="p-5 border-b border-muted-b {section==0 ? 'text-white font-bold' : ''}">
           <a href="/dashboard/applicant">Profile</a>

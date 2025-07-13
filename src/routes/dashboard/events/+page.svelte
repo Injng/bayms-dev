@@ -111,7 +111,7 @@
   <title>Events - Dashboard - BAYMS</title>
 </svelte:head>
 
-<div class="px-10 sm:px-52 pt-5">
+<div class="px-4 md:px-10 lg:px-52 pt-5">
   <div class="text-2xl text-white mb-5">
     Locations and Events
   </div>
@@ -126,8 +126,8 @@
         <p class="mb-3 text-sm text-white">{$locationMessage}</p>
       {/if}
       <form method="POST" action="?/add_location" use:locationEnhance>
-        <div class="grid grid-cols-2 gap-5">
-          <label class="grid grid-cols-[120px_1fr] mb-2 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] mb-2 items-start gap-2">
             <div>Name</div>
             <div>
               <input name="name" type="text" class="border border-muted-b bg-input w-full"
@@ -138,7 +138,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[120px_1fr] mb-2 items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] mb-2 items-start gap-2">
             <div>Description</div>
             <div>
               <input name="description" type="text" class="border border-muted-b bg-input w-full"
@@ -177,8 +177,8 @@
         <p class="mb-3 text-sm text-white">{$eventMessage}</p>
       {/if}
       <form method="POST" action="?/add_event" use:eventEnhance>
-        <div class="grid grid-cols-2 gap-5 mb-2">
-          <label class="grid grid-cols-[120px_1fr] items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-2">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] items-start gap-2">
             <div>Event Name</div>
             <div>
               <input name="name" type="text" class="border border-muted-b bg-input w-full"
@@ -189,7 +189,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[120px_1fr] items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] items-start gap-2">
             <div>Location</div>
             <div>
               <select name="location_id" class="border border-muted-b bg-input w-full"
@@ -207,8 +207,8 @@
             </div>
           </label>
         </div>
-        <div class="grid grid-cols-2 gap-5 mb-2">
-          <label class="grid grid-cols-[120px_1fr] items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-2">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] items-start gap-2">
             <div>Date</div>
             <div>
               <input name="date" type="date" class="border border-muted-b bg-input w-full"
@@ -219,7 +219,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[120px_1fr] items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] items-start gap-2">
             <div>Time</div>
             <div>
               <input name="time" type="time" class="border border-muted-b bg-input w-full"
@@ -231,7 +231,7 @@
             </div>
           </label>
         </div>
-        <label class="grid grid-cols-[120px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[120px_1fr] mb-2 items-start gap-2">
           <div>Description</div>
           <div>
             <textarea name="description" class="border border-muted-b bg-input w-full"

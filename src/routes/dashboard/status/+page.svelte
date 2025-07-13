@@ -16,7 +16,7 @@
   <title>Application Status - Dashboard - BAYMS</title>
 </svelte:head>
 
-<div class="pl-52 pr-52 pt-5 font-serif">
+<div class="px-4 md:px-52 pt-5 font-serif">
   <div class="text-2xl text-white mb-6">
     Application Status
   </div>

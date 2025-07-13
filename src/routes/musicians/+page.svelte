@@ -69,18 +69,18 @@
   <!-- Hero Section -->
   <div class="relative bg-gradient-to-r from-emerald-800 to-emerald-600 text-white">
     <div class="relative p-5">
-      <div class="text-5xl font-bold pl-60 p-5">MUSICIANS</div>
+      <div class="text-3xl md:text-5xl font-bold px-4 md:pl-60 p-5">MUSICIANS</div>
     </div>
   </div>
 
   <div class="p-4 md:p-8 lg:p-12">
     <!-- Graduating Seniors & Alumni Section -->
     <section class="mb-12">
-      <h2 class="text-4xl font-bold text-emerald-700 border-b-2 border-emerald-200 pb-2 mb-6">Graduating Seniors & Alumni</h2>
+      <h2 class="text-2xl md:text-4xl font-bold text-emerald-700 border-b-2 border-emerald-200 pb-2 mb-6">Graduating Seniors & Alumni</h2>
       
       <!-- Graduating Seniors -->
       {#if graduatingSeniors.length > 0}
-        <h3 class="text-3xl font-semibold text-gray-800 mt-6 mb-4">Graduating Seniors</h3>
+        <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 mt-6 mb-4">Graduating Seniors</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {#each graduatingSeniors as member (member.name)}
             <div class="bg-gray-50 rounded-lg shadow-md flex flex-col overflow-hidden">
@@ -98,7 +98,7 @@
 
       <!-- Alumni by Year -->
       {#if alumniYears.length > 0}
-        <h3 class="text-3xl font-semibold text-gray-800 mt-8 mb-4">Alumni</h3>
+        <h3 class="text-2xl md:text-3xl font-semibold text-gray-800 mt-8 mb-4">Alumni</h3>
         
         <!-- Horizontal year selection tabs -->
         <div class="flex flex-wrap gap-2 mb-6 border-b border-gray-300 pb-2">
@@ -136,7 +136,7 @@
 
     <!-- Current Members Section -->
     <section>
-      <h2 class="text-4xl font-bold text-emerald-700 border-b-2 border-emerald-200 pb-2 mb-6">Current Members</h2>
+      <h2 class="text-2xl md:text-4xl font-bold text-emerald-700 border-b-2 border-emerald-200 pb-2 mb-6">Current Members</h2>
       {#if currentMembers.length > 0}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {#each currentMembers as member (member.name)}

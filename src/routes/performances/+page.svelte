@@ -77,15 +77,15 @@
   <!-- Hero Section -->
   <div class="relative bg-gradient-to-r from-emerald-800 to-emerald-600 text-white">
     <div class="relative p-5">
-      <div class="text-5xl font-bold pl-60 p-5">PERFORMANCES</div>
+      <div class="text-3xl md:text-5xl font-bold px-4 md:pl-60 p-5">PERFORMANCES</div>
     </div>
   </div>
 
   <!-- Highlights Section -->
   {#if data.highlightData.length > 0}
-    <div class="bg-gray-50 py-12">
-      <div class="max-w-7xl mx-auto px-8">
-        <div class="text-3xl font-bold mb-8 text-gray-800 text-center">Featured Highlights</div>
+    <div class="bg-gray-50 py-8 md:py-12">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-gray-800 text-center">Featured Highlights</div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {#each data.highlightData as highlight}
             <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
@@ -115,19 +115,19 @@
   {/if}
 
   <!-- Content Section -->
-  <div class="max-w-7xl mx-auto p-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+  <div class="max-w-7xl mx-auto p-4 md:p-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
       <!-- Event List -->
       <div class="lg:col-span-3">
-        <div class="bg-gray-50 rounded-lg p-6 h-fit">
-          <div class="text-2xl font-bold mb-6 text-gray-800">Events</div>
+        <div class="bg-gray-50 rounded-lg p-4 md:p-6 h-fit">
+          <div class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-800">Events</div>
           <div class="space-y-3">
             {#each data.eventData as event}
               <button 
-                class="w-full text-left p-4 rounded-lg transition-all duration-200 hover:bg-white hover:shadow-md border border-transparent hover:border-gray-200 {selectedEvent?.id === event.id ? 'bg-white shadow-md border-gray-200' : 'hover:bg-gray-100'}"
+                class="w-full text-left p-3 md:p-4 rounded-lg transition-all duration-200 hover:bg-white hover:shadow-md border border-transparent hover:border-gray-200 {selectedEvent?.id === event.id ? 'bg-white shadow-md border-gray-200' : 'hover:bg-gray-100'}"
                 onclick={() => selectEvent(event)}
               >
-                <div class="font-semibold text-lg text-gray-800 mb-1">{event.name}</div>
+                <div class="font-semibold text-base md:text-lg text-gray-800 mb-1">{event.name}</div>
                 <div class="text-sm text-emerald-600 font-medium mb-2">
                   {formatDate(event.date)}
                 </div>
@@ -144,16 +144,16 @@
 
       <!-- Video List -->
       <div class="lg:col-span-3">
-        <div class="bg-gray-50 rounded-lg p-6 h-fit">
-          <div class="text-2xl font-bold mb-6 text-gray-800">Videos</div>
+        <div class="bg-gray-50 rounded-lg p-4 md:p-6 h-fit">
+          <div class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-800">Videos</div>
           {#if recordingList.length > 0}
             <div class="space-y-3">
               {#each recordingList as recording}
                 <button 
-                  class="w-full text-left p-4 rounded-lg transition-all duration-200 hover:bg-white hover:shadow-md border border-transparent hover:border-gray-200 {selectedRecording?.id === recording.id ? 'bg-white shadow-md border-gray-200' : 'hover:bg-gray-100'}"
+                  class="w-full text-left p-3 md:p-4 rounded-lg transition-all duration-200 hover:bg-white hover:shadow-md border border-transparent hover:border-gray-200 {selectedRecording?.id === recording.id ? 'bg-white shadow-md border-gray-200' : 'hover:bg-gray-100'}"
                   onclick={() => selectRecording(recording)}
                 >
-                  <div class="font-semibold text-lg text-gray-800 mb-2">{recording.name}</div>
+                  <div class="font-semibold text-base md:text-lg text-gray-800 mb-2">{recording.name}</div>
                   {#if recording.description}
                     <div class="text-sm text-gray-600 line-clamp-2">{recording.description}</div>
                   {/if}
@@ -177,8 +177,8 @@
 
       <!-- Video Player -->
       <div class="lg:col-span-6">
-        <div class="bg-gray-50 rounded-lg p-6">
-          <div class="text-2xl font-bold mb-6 text-gray-800">Video Player</div>
+        <div class="bg-gray-50 rounded-lg p-4 md:p-6">
+          <div class="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-gray-800">Video Player</div>
           <div class="space-y-6">
             {#if selectedRecording}
               <!-- Video Embed -->
@@ -194,12 +194,12 @@
               </div>
               
               <!-- Video Details -->
-              <div class="bg-white rounded-lg p-6 shadow-sm">
-                <h3 class="text-xl font-bold text-gray-800 mb-3">{selectedRecording.name}</h3>
+              <div class="bg-white rounded-lg p-4 md:p-6 shadow-sm">
+                <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-3">{selectedRecording.name}</h3>
                 {#if selectedRecording.description}
                   <p class="text-gray-600 mb-4">{selectedRecording.description}</p>
                 {/if}
-                <div class="grid grid-cols-2 gap-4 text-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
                   {#if selectedEvent}
                     <div>
                       <span class="font-semibold text-gray-700">Event:</span>
@@ -210,7 +210,7 @@
                       <div class="text-gray-600">{formatDate(selectedEvent.date)}</div>
                     </div>
                     {#if selectedEvent.locations?.name}
-                      <div class="col-span-2">
+                      <div class="md:col-span-2">
                         <span class="font-semibold text-gray-700">Location:</span>
                         <div class="text-gray-600">{selectedEvent.locations.name}</div>
                       </div>
@@ -226,9 +226,9 @@
               </div>
             {:else}
               <!-- Empty State -->
-              <div class="bg-white rounded-lg p-12 text-center shadow-sm">
-                <div class="text-6xl mb-4">🎵</div>
-                <h3 class="text-xl font-semibold text-gray-800 mb-2">No Video Selected</h3>
+              <div class="bg-white rounded-lg p-8 md:p-12 text-center shadow-sm">
+                <div class="text-4xl md:text-6xl mb-4">🎵</div>
+                <h3 class="text-lg md:text-xl font-semibold text-gray-800 mb-2">No Video Selected</h3>
                 <p class="text-gray-600">
                   {#if selectedEvent}
                     Choose a video from the list to start watching

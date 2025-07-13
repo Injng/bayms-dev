@@ -96,7 +96,7 @@
   <title>Dashboard - BAYMS</title>
 </svelte:head>
 
-<div class="pl-52 pr-52 pt-5">
+<div class="px-4 md:px-52 pt-5">
   <div class="text-2xl text-white">
     User Profile
   </div>
@@ -112,7 +112,7 @@
       {/if}
       <form method="POST" action="?/save_personal_information"
             use:personalInformationEnhance>
-        <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
           <div>Name</div>
           <div>
             <input name="name" type="text" class="border border-muted-b bg-input w-full"
@@ -123,7 +123,7 @@
             {/if}
           </div>
         </label>
-        <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
           <div>Email</div>
           <div>
             <input name="email" type="email"
@@ -136,8 +136,8 @@
             {/if}
           </div>
         </label>
-        <div class="grid grid-cols-2">
-          <label class="grid grid-cols-[150px_1fr] mb-2 mr-5 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>Phone</div>
             <div>
               <input name="phone" type="tel" class="border border-muted-b bg-input w-full"
@@ -148,7 +148,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[150px_1fr] mb-2 ml-5 items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>Birthday</div>
             <div>
               <input name="birthday" type="date" 
@@ -193,7 +193,7 @@
     <form method="POST" action="?/save_location_information"
           use:locationSchoolEnhance>
       <div class="pt-3 pb-3 pl-5 pr-5 border-b border-muted-b">
-        <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
           <div>Street</div>
           <div>
             <input name="street" type="text" class="border border-muted-b bg-input w-full"
@@ -204,7 +204,7 @@
             {/if}
           </div>
         </label>
-        <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
           <div>City</div>
           <div>
             <input name="city" type="text" class="border border-muted-b bg-input w-full"
@@ -215,8 +215,8 @@
             {/if}
           </div>
         </label>
-        <div class="grid grid-cols-2">
-          <label class="grid grid-cols-[150px_1fr] mb-2 mr-5 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>State</div>
             <div>
               <select name="state" id="states" class="border border-muted-b bg-input w-full"
@@ -232,7 +232,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[150px_1fr] ml-5 items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] items-start gap-2">
             <div>ZIP Code</div>
             <div>
               <input name="zip" type="text" class="border border-muted-b bg-input w-full"
@@ -246,8 +246,8 @@
         </div>
       </div>
       <div class="pt-3 pb-3 pl-5 pr-5">
-        <div class="grid grid-cols-2">
-          <label class="grid grid-cols-[150px_1fr] mb-2 items-start mr-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>School Name</div>
             <div>
               <input name="school" type="text" class="border border-muted-b bg-input w-full"
@@ -258,7 +258,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[150px_1fr] mb-2 items-start ml-5">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>Grade</div>
             <div>
               <input name="grade" type="number" class="border border-muted-b bg-input w-full"

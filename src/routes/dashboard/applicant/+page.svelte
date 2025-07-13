@@ -96,7 +96,7 @@
   <title>Application Profile - Dashboard - BAYMS</title>
 </svelte:head>
 
-<div class="pl-52 pr-52 pt-5">
+<div class="px-4 md:px-52 pt-5">
   <div class="text-2xl text-white">
     User Profile
   </div>
@@ -112,7 +112,7 @@
       {/if}
       <form method="POST" action="?/save_personal_information"
             use:personalInformationEnhance>
-        <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
           <div>Name</div>
           <div>
             <input name="name" type="text" class="border border-muted-b bg-input w-full"
@@ -123,7 +123,7 @@
             {/if}
           </div>
         </label>
-        <label class="grid grid-cols-[150px_1fr] mb-2 items-start">
+        <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
           <div>Email</div>
           <div>
             <input name="email" type="email"
@@ -136,8 +136,8 @@
             {/if}
           </div>
         </label>
-        <div class="grid grid-cols-2">
-          <label class="grid grid-cols-[150px_1fr] mb-2 mr-5 items-start">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>Phone</div>
             <div>
               <input name="phone" type="tel" class="border border-muted-b bg-input w-full"
@@ -148,7 +148,7 @@
               {/if}
             </div>
           </label>
-          <label class="grid grid-cols-[150px_1fr] mb-2 ml-5 items-start">
+          <label class="grid grid-cols-1 md:grid-cols-[150px_1fr] mb-2 items-start gap-2">
             <div>Birthday</div>
             <div>
               <input name="birthday" type="date" 

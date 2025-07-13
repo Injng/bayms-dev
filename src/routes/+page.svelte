@@ -52,8 +52,8 @@
       <source src="hero.mp4" type="video/mp4">
     </video>
     <div class="absolute inset-0 bg-black/60"></div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center font-serif">
-      <div class="text-white text-5xl font-bold">
+    <div class="absolute inset-0 flex flex-col items-center justify-center font-serif px-4">
+      <div class="text-white text-2xl md:text-5xl font-bold text-center">
         Bay Area Youth Music Society
       </div>
       <a href="/#about" class="text-white mt-10 pl-5 pr-5 p-2 outline-1 outline-white outline">
@@ -67,9 +67,9 @@
 
   <!-- About -->
   <div id="about" class="relative flex flex-col font-serif bg-black/60">
-    <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-white">
-      <div class="text-5xl font-bold pb-5">ABOUT US</div>
-      <div class="pb-2 text-xl">
+    <div class="relative flex flex-col mt-20 md:mt-40 mb-20 md:mb-40 px-6 md:px-80 p-5 text-white">
+      <div class="text-3xl md:text-5xl font-bold pb-5">ABOUT US</div>
+      <div class="pb-2 text-lg md:text-xl">
         BAYMS, 501(c)(3) Public Charity EIN# 74-3247617, is a
         non-profit volunteer organization that brings together youth
         from the Bay Area. We are dedicated to nurturing and enhancing
@@ -78,7 +78,7 @@
         our younger members improve their musical abilities and learn
         the significance of giving back to our community.
       </div>
-      <div class="text-xl">
+      <div class="text-lg md:text-xl">
         At BAYMS, we offer opportunities for children to perform,
         collaborate, and grow as musicians. We host events such as
         concerts, workshops, and masterclasses that connect them with
@@ -92,8 +92,8 @@
 
   <!-- Upcoming Events -->
   <div class="relative flex flex-col font-serif bg-white">
-    <div class="relative flex flex-col mt-20 mb-20 ml-80 mr-80 p-5 text-black">
-      <div class="text-5xl font-bold pb-5">UPCOMING EVENTS</div>
+    <div class="relative flex flex-col mt-10 md:mt-20 mb-10 md:mb-20 px-6 md:px-80 p-5 text-black">
+      <div class="text-3xl md:text-5xl font-bold pb-5">UPCOMING EVENTS</div>
       {#if data.upcomingEvents && data.upcomingEvents.length > 0}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {#each data.upcomingEvents as event}
@@ -117,7 +117,7 @@
           {/each}
         </div>
       {:else}
-        <div class="text-xl text-gray-600">
+        <div class="text-lg md:text-xl text-gray-600">
           No upcoming events at the moment. Check back soon for new events and performances!
         </div>
       {/if}
@@ -127,9 +127,9 @@
   
   <!-- Join -->
   <div class="relative flex flex-col font-serif bg-black/60">
-    <div class="relative flex flex-col mt-40 mb-40 ml-80 mr-80 p-5 text-white">
-      <div class="text-5xl font-bold pb-5">JOIN US</div>
-      <div class="pb-2 text-xl">
+    <div class="relative flex flex-col mt-20 md:mt-40 mb-20 md:mb-40 px-6 md:px-80 p-5 text-white">
+      <div class="text-3xl md:text-5xl font-bold pb-5">JOIN US</div>
+      <div class="pb-2 text-lg md:text-xl">
         We are always on the lookout for talented musicians to join
         us. If you're interested in auditioning, please review the
         information below.
