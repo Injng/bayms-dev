@@ -37,6 +37,9 @@
     if (!timeString) return '';
     return timeString;
   }
+
+  // state for audition dropdown
+  let showAuditions = $state(false);
 </script>
 
 <svelte:head>
@@ -129,10 +132,125 @@
   <div class="relative flex flex-col font-serif bg-black/60">
     <div class="relative flex flex-col mt-20 md:mt-40 mb-20 md:mb-40 px-6 md:px-80 p-5 text-white">
       <div class="text-3xl md:text-5xl font-bold pb-5">JOIN US</div>
-      <div class="pb-2 text-lg md:text-xl">
+      <div class="pb-8 text-lg md:text-xl">
         We are always on the lookout for talented musicians to join
         us. If you're interested in auditioning, please review the
         information below.
+      </div>
+      
+      <!-- Auditions Section -->
+      <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 pl-8 pr-8 border border-white/20">
+        <button 
+          class="w-full flex items-center justify-between text-left"
+          onclick={() => showAuditions = !showAuditions}
+        >
+          <div class="text-2xl md:text-3xl font-bold text-emerald-400">Requirements</div>
+          <div class="text-emerald-400 text-2xl transition-transform duration-300 ease-in-out" class:rotate-180={showAuditions}>
+            ▼
+          </div>
+        </button>
+        
+        <div 
+          class="overflow-hidden transition-all duration-500 ease-in-out"
+          class:max-h-0={!showAuditions}
+          class:max-h-[2000px]={showAuditions}
+        >
+          <div class="mt-6 pt-6 border-t border-white/20">
+            <div class="text-lg md:text-xl pb-6">
+              Candidates should be technically proficient in their target instrument, with several years of private lessons. See below for specific requirements.
+            </div>
+            
+            <!-- Instrument Categories -->
+            <div class="space-y-8">
+              <!-- Piano -->
+              <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+                <div class="text-xl md:text-2xl font-bold pb-4 text-emerald-300">Piano</div>
+                <ul class="space-y-2 text-lg">
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 four-octave scale in any key</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 five-minute solo piece</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>Sight reading will be tested</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Strings -->
+              <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+                <div class="text-xl md:text-2xl font-bold pb-4 text-emerald-300">Strings</div>
+                <div class="text-lg mb-4 text-emerald-200">ABRSM Grade 7 or CM Level 8</div>
+                <ul class="space-y-2 text-lg">
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 major and 1 minor three-octave scale</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 unaccompanied solo piece (1 movement from a standard concerto, Bach sonata/partita, or 1 full showpiece)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 BAYMS excerpt (will be provided prior to audition)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>Sight reading will be tested</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Woodwinds -->
+              <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+                <div class="text-xl md:text-2xl font-bold pb-4 text-emerald-300">Woodwinds</div>
+                <ul class="space-y-2 text-lg">
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 chromatic scale demonstrating full range, slurred and with articulated tonguing</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 unaccompanied solo piece (1 movement from a standard concerto, Bach sonata/partita, or 1 full showpiece)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 BAYMS excerpt (will be provided prior to audition)</span>
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>Sight reading will be tested</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Choir -->
+              <div class="bg-white/5 rounded-lg p-6 border border-white/10">
+                <div class="text-xl md:text-2xl font-bold pb-4 text-emerald-300">Choir</div>
+                <ul class="space-y-2 text-lg">
+                  <li class="flex items-start">
+                    <span class="text-emerald-400 mr-3 mt-1">•</span>
+                    <span>1 song</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Apply Button -->
+      <div class="mt-8 text-center">
+        <a 
+          href="/apply" 
+          class="inline-block bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-8 rounded-lg transition-colors duration-300 text-lg"
+        >
+          Apply Now
+        </a>
       </div>
     </div>
   </div>
