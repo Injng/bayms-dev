@@ -22,7 +22,7 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
     `)
     .gte('date', new Date().toISOString().split('T')[0]) // Only events from today onwards
     .order('date', { ascending: true })
-    .limit(5); // Limit to 5 upcoming events
+    .limit(6); // Limit to 6 upcoming events
   if (eventError) {
     svError(500, eventError.message);
   }
