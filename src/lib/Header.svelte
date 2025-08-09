@@ -84,6 +84,7 @@
     {/if}
     <a href="/musicians" class="block">Musicians</a>
     <a href="/performances" class="block">Performances</a>
+    <a href="/donations" class="block">Donations</a>
   </div>
 
   <div class="hidden md:flex grow flex-row-reverse space-x-reverse space-x-4">
@@ -103,5 +104,6 @@
     {/if}
     <a href="/musicians">Musicians</a>
     <a href="/performances">Performances</a>
+    <a href="/donations">Donations</a>
   </div>
 </div>
