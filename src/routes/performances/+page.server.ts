@@ -54,8 +54,12 @@ export const load: PageServerLoad = async ({ locals: { supabase } }) => {
     svError(500, highlightError.message);
   }
 
+  // filter out events that have no associated recordings
+  const eventIdsWithRecordings = new Set((recordingData ?? []).map((recording: any) => recording.event_id));
+  const filteredEventData = (eventData ?? []).filter((event: any) => eventIdsWithRecordings.has(event.id));
+
   return { 
-    eventData, 
+    eventData: filteredEventData, 
     recordingData,
     highlightData
   };
