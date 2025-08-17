@@ -33,9 +33,9 @@
 <Header />
 
 <!-- Login Form -->
-<div class="relative bg-slate-500 p-4 md:p-52 md:pl-[40rem] md:pr-[40rem]">
-  <div class="relative outline outline-3 outline-black bg-white p-6 md:p-10 pb-5 font-serif">
-    <div class="text-center text-2xl md:text-3xl font-bold pb-5">Member Login</div>
+<div class="relative bg-slate-500 p-4 md:p-52 sm:pl-[40rem] sm:pr-[40rem]">
+  <div class="relative outline outline-3 outline-black bg-white p-6 sm:p-10 pb-5 font-serif">
+    <div class="text-center text-2xl sm:text-3xl font-bold pb-5">Member Login</div>
     <form method="POST" action="?/login">
       <div class="flex flex-col justify-end">
         <label class="pb-3">
