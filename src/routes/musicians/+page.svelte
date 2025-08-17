@@ -133,30 +133,6 @@
         </div>
       {/if}
     </section>
-
-    <!-- Current Members Section -->
-    <section>
-      <h2 class="text-2xl md:text-4xl font-bold text-emerald-700 border-b-2 border-emerald-200 pb-2 mb-6">Current Members</h2>
-      {#if currentMembers.length > 0}
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {#each currentMembers as member (member.name)}
-            <div class="bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
-              {#if member.picture !== null}
-                <img src={getImageUrl(member.picture)} alt="Photo of {member.name}"
-                     class="w-full object-cover aspect-[3/4]" />
-              {/if}
-              <div class="p-6 flex flex-col flex-grow">
-                <h4 class="text-xl font-bold text-center text-emerald-800">{member.name}</h4>
-                <p class="text-center text-gray-600 mb-2">{member.instruments?.join(', ')}</p>
-                <p class="text-gray-700 text-sm flex-grow">{member.bio}</p>
-              </div>
-            </div>
-          {/each}
-        </div>
-      {:else}
-        <p class="text-gray-600">No current members to display.</p>
-      {/if}
-    </section>
   </div>
 </div>
 
