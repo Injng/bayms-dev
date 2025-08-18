@@ -130,6 +130,15 @@
         </div>
       {/if}
 
+      {#if userRole === 'webmaster'}
+        <div class="p-4 border-b border-muted-b {section==3 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/events">Events</a>
+        </div>
+        <div class="p-4 border-b border-muted-b {section==4 ? 'text-white font-bold bg-muted-b' : ''}">
+          <a href="/dashboard/recordings">Recordings</a>
+        </div>
+      {/if}
+
       {#if userRole === 'applicant'}
         <div class="p-4 border-b border-muted-b {section==2 ? 'text-white font-bold bg-muted-b' : ''}">
           <a href="/dashboard/status">Status</a>
@@ -158,6 +167,15 @@
         <div class="p-5 border-b border-muted-b {section==2 ? 'text-white font-bold' : ''}">
           <a href="/dashboard/applicants">Applicants</a>
         </div>
+        <div class="p-5 border-b border-muted-b {section==3 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard/events">Events</a>
+        </div>
+        <div class="p-5 border-b border-muted-b {section==4 ? 'text-white font-bold' : ''}">
+          <a href="/dashboard/recordings">Recordings</a>
+        </div>
+      {/if}
+
+      {#if userRole === 'webmaster'}
         <div class="p-5 border-b border-muted-b {section==3 ? 'text-white font-bold' : ''}">
           <a href="/dashboard/events">Events</a>
         </div>
