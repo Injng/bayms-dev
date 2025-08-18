@@ -57,7 +57,17 @@
   // format time for display
   function formatTime(timeString: string | null): string {
     if (!timeString) return '';
-    return timeString;
+    
+    // Parse the time string (assuming format like "14:30" or "14:30:00")
+    const timeMatch = timeString.match(/^(\d{1,2}):(\d{2})(?::\d{2})?$/);
+    if (!timeMatch) return timeString;
+    
+    const hours = parseInt(timeMatch[1]);
+    const minutes = timeMatch[2];
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    const displayHours = hours === 0 ? 12 : hours > 12 ? hours - 12 : hours;
+    
+    return `${displayHours}:${minutes} ${ampm}`;
   }
 
   // handle event selection for adding recording
