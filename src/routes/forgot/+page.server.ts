@@ -20,7 +20,7 @@ export const actions = {
 
     // request password reset email using supabase and handle any errors
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `https://dev.bayms.org/reset`
+      redirectTo: `https://bayms.org/reset`
     });
     if (error) {
       return { success: false };
